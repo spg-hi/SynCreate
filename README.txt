@@ -1,30 +1,114 @@
-Editorial by HTML5 UP
-html5up.net | @ajlkn
-Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SynCreate | Ιδιωτική Χρηματοδότηση & Κοινωνική Αξία</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a4a7a;
+            --secondary: #2ecc71;
+            --dark: #2c3e50;
+            --light: #f4f7f6;
+            --white: #ffffff;
+        }
 
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: var(--dark); background: var(--light); }
 
-Say hello to Editorial, a blog/magazine-ish template built around a toggleable "locking"
-sidebar (scroll down to see what I mean) and an accordion-style menu. Not the usual landing
-page/portfolio affair you'd expect to see at HTML5 UP, but I figured for my 41st (!!!)
-template I'd change it up a little. Enjoy :)
+        /* Header */
+        header { background: var(--primary); color: var(--white); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .logo { font-size: 1.5rem; font-weight: bold; letter-spacing: 1px; }
 
-Demo images* courtesy of Unsplash, a radtastic collection of CC0 (public domain) images
-you can use for pretty much whatever.
+        /* Hero Section */
+        .hero { background: linear-gradient(rgba(26, 74, 122, 0.9), rgba(26, 74, 122, 0.9)), url('https://images.unsplash.com/photo-1554469384-e58fac16e23a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80'); background-size: cover; background-position: center; height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: var(--white); padding: 0 20px; }
+        .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.2rem; max-width: 800px; margin-bottom: 2rem; }
 
-(* = not included)
+        /* Section Styling */
+        section { padding: 4rem 10%; }
+        .section-title { text-align: center; margin-bottom: 3rem; color: var(--primary); }
+        .section-title h2 { font-size: 2.2rem; }
+        .section-title div { height: 4px; width: 60px; background: var(--secondary); margin: 10px auto; }
 
-AJ
-aj@lkn.io | @ajlkn
+        /* Grid for Features */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+        .card { background: var(--white); padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; text-align: center; }
+        .card:hover { transform: translateY(-10px); }
+        .card i { font-size: 2.5rem; color: var(--secondary); margin-bottom: 1rem; }
+        .card h3 { margin-bottom: 1rem; color: var(--primary); }
 
+        /* Social Impact Section */
+        .impact { background: var(--primary); color: var(--white); }
+        .impact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 2rem; }
+        .impact-item { background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 8px; text-align: center; }
 
-Credits:
+        /* Footer */
+        footer { background: #111; color: #ccc; text-align: center; padding: 2rem; }
+        .cta-button { background: var(--secondary); color: white; padding: 12px 30px; text-decoration: none; border-radius: 25px; font-weight: bold; transition: 0.3s; }
+        .cta-button:hover { background: #27ae60; }
 
-	Demo Images:
-		Unsplash (unsplash.com)
+        @media (max-width: 768px) { .hero h1 { font-size: 2rem; } }
+    </style>
+</head>
+<body>
 
-	Icons:
-		Font Awesome (fontawesome.io)
+    <header>
+        <div class="logo">SynCreate</div>
+        <nav>
+            <a href="#about" style="color:white; text-decoration:none;">Το Έργο</a>
+        </nav>
+    </header>
 
-	Other:
-		jQuery (jquery.com)
-		Responsive Tools (github.com/ajlkn/responsive-tools)
+    <section class="hero">
+        <h1>Επενδύουμε στο Μέλλον, Μαζί.</h1>
+        <p>Ένα σύστημα ιδιωτικής χρηματοδότησης όπου οι πολίτες έχουν τον πρώτο λόγο στην καινοτομία και την ανάπτυξη.</p>
+        <a href="#about" class="cta-button">Μάθετε Περισσότερα</a>
+    </section>
+
+    <section id="about">
+        <div class="section-title">
+            <h2>Σύντομο Ρεζουμέ</h2>
+            <div></div>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <i class="fas fa-users"></i>
+                <h3>Συμμετοχικότητα</h3>
+                <p>Κάθε πολίτης επιλέγει τα projects που τον εκφράζουν, έχοντας ενεργό ρόλο στη λήψη αποφάσεων.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Δημιουργία Αξίας</h3>
+                <p>Στοχεύουμε στην οικονομική ανάπτυξη και την κερδοφορία μέσα από καινοτόμες επιχειρηματικές ιδέες.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Απόλυτη Διαφάνεια</h3>
+                <p>Τα κέρδη διανέμονται δίκαια, σύμφωνα με τη συμμετοχή και τις αποφάσεις των μελών.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="impact">
+        <div class="section-title">
+            <h2 style="color: white;">Κοινωνικό Αποτύπωμα</h2>
+            <div style="background: var(--secondary);"></div>
+        </div>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem;">Μέρος των κερδών κατευθύνεται απευθείας στην ενίσχυση της κοινωνίας, δημιουργώντας έναν κύκλο προσφοράς και ανάπτυξης.</p>
+        <div class="impact-grid">
+            <div class="impact-item"><i class="fas fa-heartbeat"></i><br>Υγεία</div>
+            <div class="impact-item"><i class="fas fa-graduation-cap"></i><br>Παιδεία</div>
+            <div class="impact-item"><i class="fas fa-briefcase"></i><br>Θέσεις Εργασίας</div>
+            <div class="impact-item"><i class="fas fa-seedling"></i><br>Βιωσιμότητα</div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 SynCreate. Με επιφύλαξη παντός δικαιώματος.</p>
+        <p style="font-size: 0.8rem; margin-top: 10px;">Σύστημα Ιδιωτικής Χρηματοδότησης & Κοινωνικής Δράσης</p>
+    </footer>
+
+</body>
+</html>
