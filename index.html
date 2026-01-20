@@ -7,108 +7,104 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary: #0f2e4a;
+            --primary: #0a192f; /* Πολύ σκούρο μπλε για τα γράμματα */
             --secondary: #27ae60;
-            --agro: #8bc34a;
-            --industry: #607d8b;
-            --tech: #2196f3;
-            --digital: #9c27b0;
+            --text-muted: #4a5568;
+            --light-bg: #f8fafc; /* Ανοιχτό, καθαρό φόντο */
             --white: #ffffff;
-            --light: #f4f7f6;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; color: #333; background: var(--light); }
+        body { font-family: 'Inter', 'Segoe UI', sans-serif; background: var(--white); color: var(--primary); }
 
         /* Header */
-        header { background: var(--white); padding: 1rem 8%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary); }
+        header { 
+            background: rgba(255, 255, 255, 0.95); 
+            padding: 1.5rem 8%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            position: fixed; 
+            width: 100%;
+            top: 0; 
+            z-index: 1000; 
+            border-bottom: 1px solid #edf2f7;
+        }
+        .logo { font-size: 1.6rem; font-weight: 800; color: var(--primary); letter-spacing: -1px; }
         .logo span { color: var(--secondary); }
 
-        /* Hero Section με νέο Background */
+        /* New Light Hero Section */
         .hero { 
-            background: linear-gradient(rgba(15, 46, 74, 0.8), rgba(15, 46, 74, 0.8)), 
-            url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1472&q=80'); 
-            background-size: cover; background-position: center; 
-            height: 70vh; display: flex; flex-direction: column; justify-content: center; align-items: center; 
-            text-align: center; color: var(--white); padding: 0 20px; 
+            background-color: var(--light-bg);
+            /* Απαλό μοτίβο στο background για βάθος */
+            background-image: radial-gradient(#e2e8f0 0.5px, transparent 0.5px);
+            background-size: 30px 30px; 
+            height: 90vh; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
+            padding: 0 20px;
+            padding-top: 80px;
         }
-        .hero h1 { font-size: 3.5rem; margin-bottom: 1rem; }
 
-        /* Sectors Section */
-        .sectors-container { padding: 4rem 8%; background: var(--white); margin-top: -50px; border-radius: 50px 50px 0 0; position: relative; }
-        .sector-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
-        
-        .sector-card { 
-            padding: 2.5rem 1.5rem; border-radius: 15px; text-align: center; color: white; transition: 0.3s; 
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
+        .hero h1 { 
+            font-size: 4.5rem; 
+            color: var(--primary); /* Σκούρο χρώμα */
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            max-width: 1000px;
         }
-        .sector-card:hover { transform: translateY(-10px); filter: brightness(1.1); }
-        .sector-card i { font-size: 3rem; margin-bottom: 1rem; }
-        .sector-card h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
-        
-        /* Χρώματα Κλάδων */
-        .bg-agro { background: var(--agro); }
-        .bg-industry { background: var(--industry); }
-        .bg-tech { background: var(--tech); }
-        .bg-digital { background: var(--digital); }
 
-        /* Content Section */
-        .main-content { padding: 5rem 10%; text-align: center; }
-        .main-content h2 { color: var(--primary); font-size: 2.5rem; margin-bottom: 1.5rem; }
-        .main-content p { max-width: 800px; margin: 0 auto; font-size: 1.1rem; color: #666; }
+        .hero p { 
+            font-size: 1.5rem; 
+            color: var(--text-muted); /* Γκρι-μπλε σκούρο */
+            max-width: 750px; 
+            margin-bottom: 3rem;
+            font-weight: 400;
+        }
 
-        footer { background: var(--primary); color: white; text-align: center; padding: 3rem; margin-top: 4rem; }
-        .cta-btn { background: var(--secondary); color: white; padding: 12px 30px; text-decoration: none; border-radius: 25px; font-weight: bold; }
+        .cta-btn { 
+            background: var(--primary); 
+            color: white; 
+            padding: 20px 45px; 
+            text-decoration: none; 
+            border-radius: 12px; 
+            font-weight: 700; 
+            font-size: 1.1rem;
+            transition: 0.3s;
+            box-shadow: 0 10px 25px rgba(10, 25, 47, 0.2);
+        }
 
+        .cta-btn:hover { 
+            background: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(39, 174, 96, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.8rem; }
+            .hero p { font-size: 1.2rem; }
+        }
     </style>
 </head>
 <body>
 
     <header>
         <div class="logo">Syn<span>Create</span></div>
-        <nav><a href="#" style="text-decoration: none; color: var(--primary); font-weight: bold;">ΑΡΧΙΚΗ</a></nav>
+        <nav>
+            <a href="#" style="text-decoration: none; color: var(--primary); font-weight: 700; font-size: 0.9rem;">ΕΙΣΟΔΟΣ ΜΕΛΩΝ</a>
+        </nav>
     </header>
 
     <section class="hero">
         <h1>Η δύναμη των πολλών,<br>γίνεται κέρδος για όλους.</h1>
-        <p style="margin-bottom: 2rem;">Επενδύουμε συλλογικά στους πυλώνες της οικονομίας μας.</p>
-        <a href="#sectors" class="cta-btn">Δείτε τους Κλάδους</a>
+        <p>Επενδύουμε συλλογικά στους πυλώνες της οικονομίας μας, δημιουργώντας σταθερή αξία για κάθε μέλος.</p>
+        <a href="#sectors" class="cta-btn">Ξεκινήστε την Επένδυση</a>
     </section>
-
-    <section class="sectors-container" id="sectors">
-        <div class="sector-grid">
-            <div class="sector-card bg-agro">
-                <i class="fas fa-seedling"></i>
-                <h3>Γεωργία</h3>
-                <p>Πρωτογενής παραγωγή & βιώσιμη καλλιέργεια.</p>
-            </div>
-            <div class="sector-card bg-industry">
-                <i class="fas fa-industry"></i>
-                <h3>Βιομηχανία</h3>
-                <p>Σύγχρονες μονάδες & υποδομές παραγωγής.</p>
-            </div>
-            <div class="sector-card bg-tech">
-                <i class="fas fa-lightbulb"></i>
-                <h3>Καινοτομία</h3>
-                <p>Έρευνα και ανάπτυξη νέων τεχνολογιών.</p>
-            </div>
-            <div class="sector-card bg-digital">
-                <i class="fas fa-microchip"></i>
-                <h3>Digital Era</h3>
-                <p>Ψηφιακός μετασχηματισμός & AI.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="main-content">
-        <h2>Συλλογική Ανάπτυξη</h2>
-        <p>Στο SynCreate, δεν επιλέγουμε απλώς projects. Χτίζουμε ένα οικοσύστημα όπου οι παραδοσιακοί κλάδοι συναντούν την ψηφιακή επανάσταση, διασφαλίζοντας κέρδος για κάθε μέλος της κοινότητάς μας.</p>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 SynCreate. Ενώνουμε δυνάμεις, μοιραζόμαστε την επιτυχία.</p>
-    </footer>
 
 </body>
 </html>
