@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SynCreate | Η δύναμη των πολλών γίνεται κέρδος για όλους./title>
+    <title>SynCreate | Η δύναμη των πολλών γίνεται κέρδος για όλους</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
@@ -22,9 +22,22 @@
         .logo { font-size: 1.5rem; font-weight: bold; letter-spacing: 1px; }
 
         /* Hero Section */
-        .hero { background: linear-gradient(rgba(26, 74, 122, 0.9), rgba(26, 74, 122, 0.9)), url('https://images.unsplash.com/photo-1554469384-e58fac16e23a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80'); background-size: cover; background-position: center; height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: var(--white); padding: 0 20px; }
-        .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
-        .hero p { font-size: 1.2rem; max-width: 800px; margin-bottom: 2rem; }
+        .hero { 
+            background: linear-gradient(rgba(26, 74, 122, 0.85), rgba(26, 74, 122, 0.85)), 
+            url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80'); 
+            background-size: cover; 
+            background-position: center; 
+            height: 80vh; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
+            color: var(--white); 
+            padding: 0 20px; 
+        }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 1rem; line-height: 1.2; }
+        .hero p { font-size: 1.4rem; max-width: 800px; margin-bottom: 2rem; opacity: 0.9; }
 
         /* Section Styling */
         section { padding: 4rem 10%; }
@@ -46,10 +59,10 @@
 
         /* Footer */
         footer { background: #111; color: #ccc; text-align: center; padding: 2rem; }
-        .cta-button { background: var(--secondary); color: white; padding: 12px 30px; text-decoration: none; border-radius: 25px; font-weight: bold; transition: 0.3s; }
-        .cta-button:hover { background: #27ae60; }
+        .cta-button { background: var(--secondary); color: white; padding: 15px 40px; text-decoration: none; border-radius: 30px; font-weight: bold; transition: 0.3s; font-size: 1.1rem; }
+        .cta-button:hover { background: #27ae60; box-shadow: 0 4px 15px rgba(46, 204, 113, 0.4); }
 
-        @media (max-width: 768px) { .hero h1 { font-size: 2rem; } }
+        @media (max-width: 768px) { .hero h1 { font-size: 2.2rem; } .hero p { font-size: 1.1rem; } }
     </style>
 </head>
 <body>
@@ -57,19 +70,19 @@
     <header>
         <div class="logo">SynCreate</div>
         <nav>
-            <a href="#about" style="color:white; text-decoration:none;">Το Έργο</a>
+            <a href="#about" style="color:white; text-decoration:none; font-weight: bold;">ΤΟ ΕΡΓΟ</a>
         </nav>
     </header>
 
     <section class="hero">
-        <h1>Επενδύουμε στο Μέλλον, Μαζί.</h1>
-        <p>Ένα σύστημα ιδιωτικής χρηματοδότησης όπου οι πολίτες έχουν τον πρώτο λόγο στην καινοτομία και την ανάπτυξη.</p>
-        <a href="#about" class="cta-button">Μάθετε Περισσότερα</a>
+        <h1>Η δύναμη των πολλών,<br>γίνεται κέρδος για όλους.</h1>
+        <p>Επενδύουμε στο μέλλον μέσα από ένα συμμετοχικό σύστημα χρηματοδότησης, όπου η καινοτομία συναντά την κοινωνική ευημερία.</p>
+        <a href="#about" class="cta-button">Ξεκινήστε Εδώ</a>
     </section>
 
     <section id="about">
         <div class="section-title">
-            <h2>Σύντομο Ρεζουμέ</h2>
+            <h2>Η Φιλοσοφία μας</h2>
             <div></div>
         </div>
         <div class="grid">
@@ -96,20 +109,19 @@
             <h2 style="color: white;">Κοινωνικό Αποτύπωμα</h2>
             <div style="background: var(--secondary);"></div>
         </div>
-        <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem;">Μέρος των κερδών κατευθύνεται απευθείας στην ενίσχυση της κοινωνίας, δημιουργώντας έναν κύκλο προσφοράς και ανάπτυξης.</p>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem; font-size: 1.1rem;">Μέρος των κερδών κατευθύνεται απευθείας στην ενίσχυση της κοινωνίας, δημιουργώντας έναν κύκλο προσφοράς και ανάπτυξης.</p>
         <div class="impact-grid">
-            <div class="impact-item"><i class="fas fa-heartbeat"></i><br>Υγεία</div>
-            <div class="impact-item"><i class="fas fa-graduation-cap"></i><br>Παιδεία</div>
-            <div class="impact-item"><i class="fas fa-briefcase"></i><br>Θέσεις Εργασίας</div>
-            <div class="impact-item"><i class="fas fa-seedling"></i><br>Βιωσιμότητα</div>
+            <div class="impact-item"><i class="fas fa-heartbeat"></i><br><br>Υγεία</div>
+            <div class="impact-item"><i class="fas fa-graduation-cap"></i><br><br>Παιδεία</div>
+            <div class="impact-item"><i class="fas fa-briefcase"></i><br><br>Θέσεις Εργασίας</div>
+            <div class="impact-item"><i class="fas fa-seedling"></i><br><br>Βιωσιμότητα</div>
         </div>
     </section>
 
     <footer>
         <p>&copy; 2024 SynCreate. Με επιφύλαξη παντός δικαιώματος.</p>
-        <p style="font-size: 0.8rem; margin-top: 10px;">Σύστημα Ιδιωτικής Χρηματοδότησης & Κοινωνικής Δράσης</p>
+        <p style="font-size: 0.8rem; margin-top: 10px; color: #777;">Σύστημα Ιδιωτικής Χρηματοδότησης & Κοινωνικής Δράσης</p>
     </footer>
 
 </body>
 </html>
-
