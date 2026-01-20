@@ -1,127 +1,96 @@
-<!DOCTYPE html>
-<html lang="el">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SynCreate | Η δύναμη των πολλών γίνεται κέρδος για όλους</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #1a4a7a;
-            --secondary: #2ecc71;
-            --dark: #2c3e50;
-            --light: #f4f7f6;
-            --white: #ffffff;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: var(--dark); background: var(--light); }
-
-        /* Header */
-        header { background: var(--primary); color: var(--white); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .logo { font-size: 1.5rem; font-weight: bold; letter-spacing: 1px; }
-
-        /* Hero Section */
-        .hero { 
-            background: linear-gradient(rgba(26, 74, 122, 0.85), rgba(26, 74, 122, 0.85)), 
-            url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80'); 
-            background-size: cover; 
-            background-position: center; 
-            height: 80vh; 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-            align-items: center; 
-            text-align: center; 
-            color: var(--white); 
-            padding: 0 20px; 
-        }
-        .hero h1 { font-size: 3.5rem; margin-bottom: 1rem; line-height: 1.2; }
-        .hero p { font-size: 1.4rem; max-width: 800px; margin-bottom: 2rem; opacity: 0.9; }
-
-        /* Section Styling */
-        section { padding: 4rem 10%; }
-        .section-title { text-align: center; margin-bottom: 3rem; color: var(--primary); }
-        .section-title h2 { font-size: 2.2rem; }
-        .section-title div { height: 4px; width: 60px; background: var(--secondary); margin: 10px auto; }
-
-        /* Grid for Features */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
-        .card { background: var(--white); padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; text-align: center; }
-        .card:hover { transform: translateY(-10px); }
-        .card i { font-size: 2.5rem; color: var(--secondary); margin-bottom: 1rem; }
-        .card h3 { margin-bottom: 1rem; color: var(--primary); }
-
-        /* Social Impact Section */
-        .impact { background: var(--primary); color: var(--white); }
-        .impact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 2rem; }
-        .impact-item { background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 8px; text-align: center; }
-
-        /* Footer */
-        footer { background: #111; color: #ccc; text-align: center; padding: 2rem; }
-        .cta-button { background: var(--secondary); color: white; padding: 15px 40px; text-decoration: none; border-radius: 30px; font-weight: bold; transition: 0.3s; font-size: 1.1rem; }
-        .cta-button:hover { background: #27ae60; box-shadow: 0 4px 15px rgba(46, 204, 113, 0.4); }
-
-        @media (max-width: 768px) { .hero h1 { font-size: 2.2rem; } .hero p { font-size: 1.1rem; } }
-    </style>
-</head>
-<body>
-
-    <header>
-        <div class="logo">SynCreate</div>
-        <nav>
-            <a href="#about" style="color:white; text-decoration:none; font-weight: bold;">ΤΟ ΕΡΓΟ</a>
-        </nav>
-    </header>
-
-    <section class="hero">
-        <h1>Η δύναμη των πολλών,<br>γίνεται κέρδος για όλους.</h1>
-        <p>Επενδύουμε στο μέλλον μέσα από ένα συμμετοχικό σύστημα χρηματοδότησης, όπου η καινοτομία συναντά την κοινωνική ευημερία.</p>
-        <a href="#about" class="cta-button">Ξεκινήστε Εδώ</a>
-    </section>
-
-    <section id="about">
+<section id="about">
         <div class="section-title">
-            <h2>Η Φιλοσοφία μας</h2>
+            <h2>Επιλέξτε τον Ρόλο σας</h2>
+            <p>Δείτε πώς το SynCreate λειτουργεί για εσάς</p>
             <div></div>
         </div>
+
         <div class="grid">
-            <div class="card">
-                <i class="fas fa-users"></i>
-                <h3>Συμμετοχικότητα</h3>
-                <p>Κάθε πολίτης επιλέγει τα projects που τον εκφράζουν, έχοντας ενεργό ρόλο στη λήψη αποφάσεων.</p>
+            <div class="card interactive-card active" onclick="showTab('investor', this)">
+                <i class="fas fa-user-tie"></i>
+                <h3>Για τον Ιδιώτη</h3>
+                <p>Επένδυση & Συμμετοχή</p>
             </div>
-            <div class="card">
-                <i class="fas fa-chart-line"></i>
-                <h3>Δημιουργία Αξίας</h3>
-                <p>Στοχεύουμε στην οικονομική ανάπτυξη και την κερδοφορία μέσα από καινοτόμες επιχειρηματικές ιδέες.</p>
+            <div class="card interactive-card" onclick="showTab('business', this)">
+                <i class="fas fa-lightbulb"></i>
+                <h3>Για την Ιδέα</h3>
+                <p>Χρηματοδότηση & Ανάπτυξη</p>
             </div>
-            <div class="card">
-                <i class="fas fa-shield-alt"></i>
-                <h3>Απόλυτη Διαφάνεια</h3>
-                <p>Τα κέρδη διανέμονται δίκαια, σύμφωνα με τη συμμετοχή και τις αποφάσεις των μελών.</p>
+            <div class="card interactive-card" onclick="showTab('society', this)">
+                <i class="fas fa-hands-helping"></i>
+                <h3>Για την Κοινωνία</h3>
+                <p>Αντίκτυπος & Προσφορά</p>
+            </div>
+        </div>
+
+        <div id="tab-content" class="tab-display">
+            <div id="investor" class="content-item active">
+                <h4>Γίνετε Μέλος της Αλλαγής</h4>
+                <p>Ως ιδιώτης, έχετε τη δυνατότητα να χρηματοδοτήσετε projects που σας ενδιαφέρουν. Απολαμβάνετε μερίσματα από τα κέρδη και έχετε δικαίωμα ψήφου στις σημαντικές αποφάσεις της κοινότητας.</p>
+                <ul style="list-style: none; margin-top: 15px;">
+                    <li><i class="fas fa-check-circle" style="color:var(--secondary)"></i> Χαμηλό ρίσκο μέσω διασποράς</li>
+                    <li><i class="fas fa-check-circle" style="color:var(--secondary)"></i> Πρόσβαση σε καινοτόμες startups</li>
+                </ul>
+            </div>
+
+            <div id="business" class="content-item">
+                <h4>Μετατρέψτε την Ιδέα σας σε Επιχείρηση</h4>
+                <p>Έχετε μια καινοτόμο ιδέα αλλά σας λείπει το κεφάλαιο; Το SynCreate σας παρέχει την απαραίτητη χρηματοδότηση και μια έτοιμη βάση υποστηρικτών που θέλουν να σας δουν να πετυχαίνετε.</p>
+                <ul style="list-style: none; margin-top: 15px;">
+                    <li><i class="fas fa-check-circle" style="color:var(--secondary)"></i> Άμεση πρόσβαση σε κεφάλαια</li>
+                    <li><i class="fas fa-check-circle" style="color:var(--secondary)"></i> Mentoring από έμπειρα στελέχη</li>
+                </ul>
+            </div>
+
+            <div id="society" class="content-item">
+                <h4>Ενίσχυση της Κοινωνικής Συνοχής</h4>
+                <p>Κάθε κερδοφόρα ενέργεια επιστρέφει ένα ποσοστό στην κοινωνία. Χρηματοδοτούμε υποδομές υγείας, παιδείας και περιβάλλοντος, επιλεγμένες απευθείας από τα μέλη μας.</p>
+                <ul style="list-style: none; margin-top: 15px;">
+                    <li><i class="fas fa-check-circle" style="color:var(--secondary)"></i> Διαφανής διαχείριση πόρων</li>
+                    <li><i class="fas fa-check-circle" style="color:var(--secondary)"></i> Μετρήσιμο κοινωνικό έργο</li>
+                </ul>
             </div>
         </div>
     </section>
 
-    <section class="impact">
-        <div class="section-title">
-            <h2 style="color: white;">Κοινωνικό Αποτύπωμα</h2>
-            <div style="background: var(--secondary);"></div>
-        </div>
-        <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem; font-size: 1.1rem;">Μέρος των κερδών κατευθύνεται απευθείας στην ενίσχυση της κοινωνίας, δημιουργώντας έναν κύκλο προσφοράς και ανάπτυξης.</p>
-        <div class="impact-grid">
-            <div class="impact-item"><i class="fas fa-heartbeat"></i><br><br>Υγεία</div>
-            <div class="impact-item"><i class="fas fa-graduation-cap"></i><br><br>Παιδεία</div>
-            <div class="impact-item"><i class="fas fa-briefcase"></i><br><br>Θέσεις Εργασίας</div>
-            <div class="impact-item"><i class="fas fa-seedling"></i><br><br>Βιωσιμότητα</div>
-        </div>
-    </section>
+    <style>
+        .interactive-card { cursor: pointer; border: 2px solid transparent; transition: 0.3s; }
+        .interactive-card.active { border-color: var(--secondary); background: #fff; transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        
+        .tab-display { 
+            margin-top: 3rem; 
+            background: white; 
+            padding: 3rem; 
+            border-radius: 15px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+            text-align: center;
+        }
+        
+        .content-item { display: none; animation: fadeIn 0.5s; }
+        .content-item.active { display: block; }
+        .content-item h4 { color: var(--primary); font-size: 1.8rem; margin-bottom: 1rem; }
+        .content-item p { font-size: 1.1rem; color: #555; }
 
-    <footer>
-        <p>&copy; 2024 SynCreate. Με επιφύλαξη παντός δικαιώματος.</p>
-        <p style="font-size: 0.8rem; margin-top: 10px; color: #777;">Σύστημα Ιδιωτικής Χρηματοδότησης & Κοινωνικής Δράσης</p>
-    </footer>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 
-</body>
-</html>
+    <script>
+        function showTab(tabId, element) {
+            // Αφαίρεση του active από όλα τα περιεχόμενα
+            const contents = document.querySelectorAll('.content-item');
+            contents.forEach(content => content.classList.remove('active'));
+
+            // Αφαίρεση του active από όλα τα κουτάκια
+            const cards = document.querySelectorAll('.interactive-card');
+            cards.forEach(card => card.classList.remove('active'));
+
+            // Εμφάνιση του επιλεγμένου περιεχομένου
+            document.getElementById(tabId).classList.add('active');
+
+            // Προσθήκη active στο κουτάκι που πατήθηκε
+            element.classList.add('active');
+        }
+    </script>
