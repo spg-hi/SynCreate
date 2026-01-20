@@ -3,24 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SynCreate | Η δύναμη των πολλών</title>
+    <title>SynCreate | Professional Collective Investment</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary: #0a192f; /* Πολύ σκούρο μπλε για τα γράμματα */
-            --secondary: #27ae60;
-            --text-muted: #4a5568;
-            --light-bg: #f8fafc; /* Ανοιχτό, καθαρό φόντο */
+            --primary: #0f172a; /* Slate 900 */
+            --secondary: #10b981; /* Emerald 500 */
+            --accent: #3b82f6; /* Blue 500 */
+            --bg-light: #f8fafc; /* Slate 50 */
+            --text-main: #1e293b;
+            --text-muted: #64748b;
             --white: #ffffff;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', 'Segoe UI', sans-serif; background: var(--white); color: var(--primary); }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: var(--white); 
+            color: var(--text-main);
+            -webkit-font-smoothing: antialiased;
+        }
 
-        /* Header */
+        /* Pro Header */
         header { 
-            background: rgba(255, 255, 255, 0.95); 
-            padding: 1.5rem 8%; 
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px); /* Glassmorphism */
+            padding: 1.2rem 10%; 
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
@@ -28,83 +37,48 @@
             width: 100%;
             top: 0; 
             z-index: 1000; 
-            border-bottom: 1px solid #edf2f7;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
-        .logo { font-size: 1.6rem; font-weight: 800; color: var(--primary); letter-spacing: -1px; }
+        .logo { font-size: 1.4rem; font-weight: 900; color: var(--primary); letter-spacing: -0.5px; }
         .logo span { color: var(--secondary); }
 
-        /* New Light Hero Section */
+        /* Pro Hero Dimensions */
         .hero { 
-            background-color: var(--light-bg);
-            /* Απαλό μοτίβο στο background για βάθος */
-            background-image: radial-gradient(#e2e8f0 0.5px, transparent 0.5px);
-            background-size: 30px 30px; 
-            height: 90vh; 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-            align-items: center; 
-            text-align: center; 
-            padding: 0 20px;
-            padding-top: 80px;
+            padding: 160px 10% 100px 10%;
+            background: radial-gradient(circle at top right, #f1f5f9 0%, #ffffff 100%);
+            text-align: center;
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .hero h1 { 
-            font-size: 4.5rem; 
-            color: var(--primary); /* Σκούρο χρώμα */
+            font-size: clamp(2.5rem, 5vw, 4.2rem); /* Responsive μέγεθος */
             font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            max-width: 1000px;
+            line-height: 1.05;
+            color: var(--primary);
+            max-width: 900px;
+            margin-bottom: 2rem;
+            letter-spacing: -2px;
         }
 
         .hero p { 
-            font-size: 1.5rem; 
-            color: var(--text-muted); /* Γκρι-μπλε σκούρο */
-            max-width: 750px; 
-            margin-bottom: 3rem;
-            font-weight: 400;
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            color: var(--text-muted);
+            max-width: 650px;
+            margin-bottom: 3.5rem;
+            line-height: 1.6;
         }
 
-        .cta-btn { 
+        /* Buttons & Actions */
+        .cta-group { display: flex; gap: 15px; }
+        .btn-primary { 
             background: var(--primary); 
             color: white; 
-            padding: 20px 45px; 
-            text-decoration: none; 
+            padding: 18px 36px; 
             border-radius: 12px; 
+            text-decoration: none; 
             font-weight: 700; 
-            font-size: 1.1rem;
-            transition: 0.3s;
-            box-shadow: 0 10px 25px rgba(10, 25, 47, 0.2);
-        }
-
-        .cta-btn:hover { 
-            background: var(--secondary);
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(39, 174, 96, 0.3);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.8rem; }
-            .hero p { font-size: 1.2rem; }
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <div class="logo">Syn<span>Create</span></div>
-        <nav>
-            <a href="#" style="text-decoration: none; color: var(--primary); font-weight: 700; font-size: 0.9rem;">ΕΙΣΟΔΟΣ ΜΕΛΩΝ</a>
-        </nav>
-    </header>
-
-    <section class="hero">
-        <h1>Η δύναμη των πολλών,<br>γίνεται κέρδος για όλους.</h1>
-        <p>Επενδύουμε συλλογικά στους πυλώνες της οικονομίας μας, δημιουργώντας σταθερή αξία για κάθε μέλος.</p>
-        <a href="#sectors" class="cta-btn">Ξεκινήστε την Επένδυση</a>
-    </section>
-
-</body>
-</html>
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2,
