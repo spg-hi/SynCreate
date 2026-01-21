@@ -104,4 +104,204 @@
             padding: 10px 25px;
             border-radius: 50px;
             opacity: 1 !important;
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
+            transition: 0.3s;
+        }
+
+        .btn-login:hover {
+            background: var(--text);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero { 
+            padding: 180px 10% 100px; 
+            text-align: center; 
+            background: radial-gradient(circle at 50% -10%, #eff6ff 0%, #ffffff 60%);
+        }
+
+        .hero h1 { 
+            font-size: clamp(2.5rem, 8vw, 5rem); 
+            font-weight: 800; 
+            letter-spacing: -0.04em; 
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+        }
+
+        .hero p { 
+            font-size: clamp(1.1rem, 2vw, 1.3rem); 
+            color: #4b5563; 
+            max-width: 700px; 
+            margin: 0 auto 3rem; 
+        }
+        
+        .btn-main { 
+            background: var(--text); 
+            color: white; 
+            padding: 18px 45px; 
+            border-radius: 15px; 
+            text-decoration: none; 
+            font-weight: 600; 
+            font-size: 1.1rem;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .btn-main:hover { 
+            transform: translateY(-4px); 
+            box-shadow: 0 25px 30px -10px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Grid Section */
+        .section-header { padding: 80px 10% 40px; }
+        .section-header h2 { font-size: 2.5rem; font-weight: 800; letter-spacing: -1px; }
+
+        .grid-container { 
+            padding: 0 10% 120px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 24px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid var(--border);
+            cursor: pointer;
+        }
+
+        .card:hover {
+            background: #ffffff;
+            border-color: var(--primary);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.06);
+            transform: translateY(-12px);
+        }
+
+        .card i { font-size: 2.5rem; margin-bottom: 20px; color: var(--primary); }
+        .card h3 { font-size: 1.5rem; margin-bottom: 12px; font-weight: 700; }
+        .card p { color: #64748b; font-size: 1rem; }
+
+        .badge {
+            display: inline-block;
+            padding: 5px 12px;
+            background: rgba(59, 130, 246, 0.08);
+            color: var(--primary);
+            border-radius: 10px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        /* Reveal Animation CSS */
+        [data-reveal] {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        [data-reveal].visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        footer { 
+            padding: 60px 10%; 
+            border-top: 1px solid var(--border); 
+            text-align: center;
+            background: #fcfcfc;
+        }
+
+        @media (max-width: 900px) {
+            .nav-menu { display: none; }
+            .hero { padding-top: 150px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="nav-wrapper" id="navWrapper">
+        <nav>
+            <a href="#" class="logo">Syn<span>Create</span></a>
+            <div class="nav-menu">
+                <a href="#explore" class="nav-link">Κλάδοι</a>
+                <a href="#" class="nav-link">Πώς Λειτουργεί</a>
+                <a href="#" class="nav-link">Οικοσύστημα</a>
+                <a href="#" class="nav-link btn-login">Ξεκινήστε</a>
+            </div>
+        </nav>
+    </div>
+
+    <section class="hero">
+        <h1 data-reveal>Η δύναμη των πολλών,<br>γίνεται κέρδος για όλους.</h1>
+        <p data-reveal>Μια σύγχρονη πλατφόρμα συλλογικής ανάπτυξης που επενδύει στην πραγματική οικονομία και την τεχνολογία του αύριο.</p>
+        <a href="#explore" class="btn-main" data-reveal>Εξερευνήστε Τώρα</a>
+    </section>
+
+    <div class="section-header" id="explore" data-reveal>
+        <h2>Τομείς Ανάπτυξης</h2>
+        <p style="color:#64748b;">Στρατηγικοί πυλώνες επένδυσης και καινοτομίας.</p>
+    </div>
+
+    <section class="grid-container">
+        <div class="card" data-reveal>
+            <span class="badge">Agri-Tech</span>
+            <i class="fas fa-seedling"></i>
+            <h3>Γεωργία</h3>
+            <p>Έξυπνη παραγωγή και βιώσιμη ανάπτυξη του πρωτογενούς τομέα.</p>
+        </div>
+
+        <div class="card" data-reveal>
+            <span class="badge">Industrial</span>
+            <i class="fas fa-industry"></i>
+            <h3>Βιομηχανία</h3>
+            <p>Εκσυγχρονισμός μονάδων και υποδομές νέας γενιάς (Industry 4.0).</p>
+        </div>
+
+        <div class="card" data-reveal>
+            <span class="badge">Startup</span>
+            <i class="fas fa-lightbulb"></i>
+            <h3>Καινοτομία</h3>
+            <p>Υποστήριξη νέων ιδεών που αλλάζουν τα δεδομένα στην αγορά.</p>
+        </div>
+
+        <div class="card" data-reveal>
+            <span class="badge">Future</span>
+            <i class="fas fa-microchip"></i>
+            <h3>Digital Era</h3>
+            <p>Επενδύσεις σε AI, Data και την ψηφιακή οικονομία του μέλλοντος.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="logo">Syn<span>Create</span></div>
+        <p style="margin-top: 15px; color: #94a3b8; font-size: 0.9rem;">&copy; 2026. Σχεδιασμένο για την κοινότητα.</p>
+    </footer>
+
+    <script>
+        // 1. Scroll Effect for Navbar
+        window.addEventListener('scroll', function() {
+            const wrapper = document.getElementById('navWrapper');
+            if (window.scrollY > 50) {
+                wrapper.classList.add('nav-scrolled');
+            } else {
+                wrapper.classList.remove('nav-scrolled');
+            }
+        });
+
+        // 2. Reveal Elements on Scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('[data-reveal]').forEach((el) => observer.observe(el));
+    </script>
+
+</body>
+</html>
