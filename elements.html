@@ -16,14 +16,13 @@
             --secondary: #10b981;
             --card-bg: #f8fafc;
             --border: #e5e7eb;
-            --gradient: linear-gradient(135deg, #3b82f6 0%, #2dd4bf 100%);
         }
 
-        /* Smooth Scroll & Selection */
+        /* Smooth Scroll */
         html { scroll-behavior: smooth; }
-        ::selection { background: var(--primary); color: white; }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body { 
             font-family: 'Inter', sans-serif; 
             background: var(--bg); 
@@ -32,7 +31,7 @@
             overflow-x: hidden;
         }
 
-        /* Navigation - Enhanced Glassmorphism */
+        /* Navigation - Modern Tech Style */
         nav { 
             padding: 1.2rem 10%; 
             display: flex; 
@@ -45,32 +44,74 @@
             backdrop-filter: blur(12px); 
             z-index: 1000; 
         }
-        .logo { font-weight: 800; font-size: 1.6rem; letter-spacing: -1.2px; color: var(--text); text-decoration: none; }
+
+        .logo { 
+            font-weight: 800; 
+            font-size: 1.6rem; 
+            letter-spacing: -1.2px; 
+            color: var(--text); 
+            text-decoration: none; 
+        }
+        
         .logo span { color: var(--primary); }
 
-        /* Hero Section - Clean & Powerful */
+        .nav-menu {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: 0.3s;
+            opacity: 0.7;
+        }
+
+        .nav-link:hover {
+            opacity: 1;
+            color: var(--primary);
+        }
+
+        .btn-login {
+            background: var(--primary);
+            color: white !important;
+            padding: 10px 20px;
+            border-radius: 8px;
+            opacity: 1 !important;
+            transition: 0.3s;
+        }
+
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Hero Section */
         .hero { 
-            padding: clamp(100px, 15vh, 200px) 10%; 
+            padding: clamp(100px, 15vh, 180px) 10%; 
             text-align: center; 
             background: radial-gradient(circle at 50% -20%, #eff6ff 0%, #ffffff 70%);
         }
+
         .hero h1 { 
-            font-size: clamp(2.5rem, 7vw, 5.5rem); 
+            font-size: clamp(2.5rem, 7vw, 5.2rem); 
             font-weight: 800; 
             letter-spacing: -0.04em; 
             line-height: 1.05;
             margin-bottom: 1.5rem;
             color: var(--text);
         }
+
         .hero p { 
             font-size: clamp(1.1rem, 2vw, 1.4rem); 
             color: #4b5563; 
             max-width: 750px; 
             margin: 0 auto 3rem; 
-            opacity: 0.9;
         }
         
-        /* Premium Button */
         .btn-main { 
             background: var(--text); 
             color: white; 
@@ -79,19 +120,19 @@
             text-decoration: none; 
             font-weight: 600; 
             font-size: 1.1rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: 0.3s;
             display: inline-block;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
         }
+
         .btn-main:hover { 
             transform: translateY(-3px); 
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
             background: var(--primary);
         }
 
-        /* Grid System - Ethereum Inspired */
+        /* Sectors Section */
         .section-header { padding: 100px 10% 40px; }
-        .section-header h2 { font-size: 2.8rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 10px; }
+        .section-header h2 { font-size: 2.8rem; font-weight: 800; letter-spacing: -1px; }
 
         .grid-container { 
             padding: 0 10% 120px;
@@ -103,24 +144,24 @@
         .card {
             background: var(--card-bg);
             padding: 48px;
-            border-radius: 24px;
+            border-radius: 20px;
             transition: all 0.4s ease;
             border: 1px solid var(--border);
             display: flex;
             flex-direction: column;
             cursor: pointer;
         }
+
         .card:hover {
             background: #ffffff;
             border-color: var(--primary);
             box-shadow: 0 30px 60px -12px rgba(0,0,0,0.08);
             transform: translateY(-10px);
         }
-        .card i { font-size: 2.8rem; margin-bottom: 24px; transition: 0.3s; }
-        .card:hover i { transform: scale(1.1); }
-        
-        .card h3 { font-size: 1.6rem; margin-bottom: 16px; font-weight: 700; color: var(--text); }
-        .card p { color: #64748b; font-size: 1.1rem; line-height: 1.6; }
+
+        .card i { font-size: 2.8rem; margin-bottom: 24px; }
+        .card h3 { font-size: 1.6rem; margin-bottom: 16px; font-weight: 700; }
+        .card p { color: #64748b; font-size: 1.1rem; }
 
         .badge {
             display: inline-block;
@@ -132,18 +173,9 @@
             font-weight: 700;
             margin-bottom: 20px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
-        /* Footer */
-        footer { 
-            background: #fafafa; 
-            padding: 80px 10%; 
-            border-top: 1px solid var(--border); 
-            text-align: center; 
-        }
-
-        /* Animations */
+        /* Reveal Animation */
         [data-reveal] {
             opacity: 0;
             transform: translateY(30px);
@@ -154,10 +186,16 @@
             transform: translateY(0);
         }
 
+        footer { 
+            background: #fafafa; 
+            padding: 80px 10%; 
+            border-top: 1px solid var(--border); 
+            text-align: center; 
+        }
+
         @media (max-width: 768px) {
-            .hero h1 { letter-spacing: -1px; }
-            .grid-container { padding: 0 5% 80px; }
-            .card { padding: 32px; }
+            .nav-menu { display: none; }
+            .hero h1 { font-size: 2.8rem; }
         }
     </style>
 </head>
@@ -165,7 +203,13 @@
 
     <nav>
         <a href="#" class="logo">Syn<span>Create</span></a>
-        <div style="font-size: 0.85rem; font-weight: 700; color: var(--text); opacity: 0.5; text-transform: uppercase; letter-spacing: 1px;">Platform v1.0</div>
+        
+        <div class="nav-menu">
+            <a href="#explore" class="nav-link">Κλάδοι</a>
+            <a href="#" class="nav-link">Πώς Λειτουργεί</a>
+            <a href="#" class="nav-link">Κοινότητα</a>
+            <a href="#" class="nav-link btn-login">Είσοδος</a>
+        </div>
     </nav>
 
     <section class="hero">
@@ -176,7 +220,7 @@
 
     <div class="section-header" id="explore" data-reveal>
         <h2>Τομείς Ανάπτυξης</h2>
-        <p style="color:#64748b; font-size: 1.2rem;">Στρατηγική επένδυση στους πυλώνες του μέλλοντος.</p>
+        <p style="color:#64748b; font-size: 1.2rem; margin-top: 10px;">Στρατηγική επένδυση στους πυλώνες του μέλλοντος.</p>
     </div>
 
     <section class="grid-container">
@@ -215,14 +259,11 @@
     </footer>
 
     <script>
-        const observerOptions = { threshold: 0.1 };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
+                if (entry.isIntersecting) entry.target.classList.add('visible');
             });
-        }, observerOptions);
+        }, { threshold: 0.1 });
 
         document.querySelectorAll('[data-reveal]').forEach((el) => observer.observe(el));
     </script>
