@@ -3,197 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SynCreate | Ενώνουμε Ιδέες & Κεφάλαια</title>
+    <title>SynCreate | Συλλογική Ανάπτυξη</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         :root {
-            --primary: #3b82f6;
-            --dark: #0f172a;
-            --text-main: #1e293b;
-            --text-muted: #475569;
-            --bg-light: #f8fafc;
-            --border: rgba(226, 232, 240, 0.8);
+            --bg: #ffffff;
+            --text: #1a1a1a;
+            --primary: #3b82f6; 
+            --border: rgba(0, 0, 0, 0.05);
         }
 
-        /* Base Reset */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body { 
             font-family: 'Inter', sans-serif; 
-            color: var(--text-main); 
-            background: #ffffff;
-            line-height: 1.5;
-            -webkit-font-smoothing: antialiased;
+            background: var(--bg); 
+            color: var(--text); 
+            -webkit-font-smoothing: antialiased; /* Κάνει τα γράμματα ακόμα πιο καθαρά */
         }
 
-        /* --- NAVIGATION (Refined) --- */
-        nav {
-            position: fixed; top: 0; width: 100%; z-index: 2000;
-            background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border); padding: 0.8rem 6%;
-            display: flex; justify-content: space-between; align-items: center;
+        /* --- NAVIGATION --- */
+        .nav-wrapper {
+            position: fixed; top: 0; width: 100%; display: flex; justify-content: center;
+            z-index: 2000; padding-top: 25px;
         }
+
+        nav { 
+            width: 92%; max-width: 1200px; padding: 0.8rem 2.5rem; 
+            display: flex; justify-content: space-between; align-items: center; 
+            border: 1px solid var(--border); border-radius: 100px; 
+            background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(20px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.02);
+        }
+
         .logo { 
-            font-weight: 800; font-size: 1.3rem; color: var(--dark); 
-            text-decoration: none; letter-spacing: -0.5px;
+            font-weight: 600; font-size: 1.3rem; letter-spacing: -0.5px; 
+            text-decoration: none; color: var(--text); 
         }
-        .logo span { color: var(--primary); }
-        
-        .nav-links { display: none; gap: 32px; align-items: center; }
-        .nav-links a { text-decoration: none; color: var(--text-main); font-weight: 600; font-size: 0.9rem; transition: 0.2s; }
-        .nav-links a:hover { color: var(--primary); }
+        .logo span { font-weight: 200; color: var(--primary); }
 
-        .mobile-toggle { font-size: 1.4rem; cursor: pointer; display: block; color: var(--dark); }
+        .nav-menu { display: flex; gap: 35px; align-items: center; }
+        .nav-link { 
+            text-decoration: none; color: var(--text); font-size: 0.85rem; 
+            font-weight: 400; opacity: 0.6; transition: 0.3s; letter-spacing: 0.5px;
+        }
+        .nav-link:hover { opacity: 1; color: var(--primary); }
 
-        /* Fullscreen Mobile Menu */
-        .mobile-menu {
+        /* Mobile Burger */
+        .mobile-toggle { display: none; font-size: 1.4rem; cursor: pointer; }
+
+        /* Mobile Overlay */
+        .mobile-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: #ffffff; z-index: 3000; display: none;
-            flex-direction: column; justify-content: center; align-items: center; gap: 2rem;
+            background: white; z-index: 3000; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; gap: 30px;
+            visibility: hidden; opacity: 0; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .mobile-menu.active { display: flex; }
-        .mobile-menu a { font-size: 1.6rem; font-weight: 700; text-decoration: none; color: var(--dark); }
-        .close-menu { position: absolute; top: 25px; right: 25px; font-size: 2rem; }
+        .mobile-overlay.active { visibility: visible; opacity: 1; }
+        .mobile-overlay a { font-size: 1.5rem; font-weight: 200; text-decoration: none; color: var(--text); }
 
-        /* --- HERO SECTION (Apple/Stripe Style) --- */
+        /* --- HERO (The Aesthetic Piece) --- */
         .hero { 
-            padding: clamp(120px, 15vh, 160px) 6% 80px; 
-            text-align: center;
-            background: radial-gradient(circle at top right, #f1f5f9 0%, #ffffff 60%);
-        }
-
-        .award-badge {
-            display: inline-flex; align-items: center; gap: 8px;
-            background: #fff7ed; color: #9a3412; padding: 6px 16px;
-            border-radius: 100px; font-size: 0.85rem; font-weight: 700; margin-bottom: 2rem;
-            border: 1px solid #ffedd5;
+            padding: 220px 10% 120px; text-align: center; 
+            background: radial-gradient(circle at 50% -20%, #f1f5f9 0%, #ffffff 70%);
         }
 
         .hero h1 { 
-            font-size: clamp(1.8rem, 4.5vw, 3.2rem); 
-            font-weight: 800; line-height: 1.15; letter-spacing: -0.03em;
-            color: var(--dark); max-width: 900px; margin: 0 auto 1.5rem;
+            /* Εδώ είναι το μυστικό: Πολύ λεπτό βάρος (200-300) και μεγάλο μέγεθος */
+            font-size: clamp(2.2rem, 6.5vw, 4.5rem); 
+            font-weight: 200; 
+            letter-spacing: -0.05em; 
+            line-height: 1.05; 
+            margin-bottom: 2rem;
+            color: #111;
         }
-        .hero h1 span { color: var(--primary); }
+        .hero h1 span { 
+            font-weight: 600; /* Μόνο η λέξη "άνθρωποι" λίγο πιο έντονη για έμφαση */
+            background: linear-gradient(90deg, #3b82f6, #60a5fa);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
 
         .hero p { 
-            font-size: clamp(1rem, 1.2vw, 1.15rem); 
-            color: var(--text-muted); max-width: 620px; 
-            margin: 0 auto 2.5rem; font-weight: 400;
+            font-size: clamp(1.1rem, 1.8vw, 1.3rem); 
+            font-weight: 300; 
+            color: #666; 
+            max-width: 750px; margin: 0 auto 3.5rem; 
+            letter-spacing: 0.2px;
         }
 
-        .btn { 
-            padding: 14px 30px; border-radius: 10px; font-weight: 600; 
-            text-decoration: none; display: inline-block; transition: 0.3s;
-            font-size: 0.95rem;
+        .btn-main { 
+            background: var(--text); color: white; padding: 16px 45px; 
+            border-radius: 100px; text-decoration: none; font-weight: 400; 
+            font-size: 0.95rem; letter-spacing: 1px; transition: 0.4s;
         }
-        .btn-dark { background: var(--dark); color: white; }
-        .btn-dark:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(0,0,0,0.1); }
-        .btn-outline { border: 1px solid #e2e8f0; color: var(--dark); margin-left: 10px; }
-        .btn-outline:hover { background: #f8fafc; }
+        .btn-main:hover { 
+            background: var(--primary); transform: translateY(-3px); 
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2); 
+        }
 
-        /* --- SECTORS / FEATURES --- */
-        .section-header { padding: 60px 6% 30px; text-align: center; }
-        .section-header h2 { font-size: 2rem; font-weight: 800; letter-spacing: -0.02em; }
-        .section-header p { color: var(--text-muted); margin-top: 8px; }
+        /* --- SECTORS --- */
+        .section-header { padding: 80px 10% 40px; text-align: center; }
+        .section-header h2 { font-size: 2.2rem; font-weight: 200; letter-spacing: -1px; }
 
         .grid { 
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 24px; padding: 0 6% 100px; 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 30px; padding: 0 10% 120px; 
         }
-        .card { 
-            padding: 40px; border-radius: 20px; border: 1px solid var(--border); 
-            background: #ffffff; transition: 0.4s ease;
+        .card {
+            padding: 50px; border-radius: 30px; border: 1px solid var(--border);
+            background: #fff; transition: 0.5s cubic-bezier(0.2, 1, 0.3, 1);
         }
         .card:hover { 
-            border-color: var(--primary); transform: translateY(-8px); 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.04); 
+            transform: translateY(-15px); border-color: var(--primary);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.04);
         }
-        .card i { font-size: 2rem; color: var(--primary); margin-bottom: 1.5rem; }
-        .card h3 { font-size: 1.4rem; margin-bottom: 0.8rem; font-weight: 700; }
-        .card p { color: var(--text-muted); font-size: 0.95rem; }
+        .card i { font-size: 2rem; color: var(--primary); margin-bottom: 25px; font-weight: 200; }
+        .card h3 { font-size: 1.4rem; font-weight: 400; margin-bottom: 15px; letter-spacing: -0.5px; }
+        .card p { font-weight: 300; color: #777; font-size: 0.95rem; }
 
-        /* Animations */
-        [data-reveal] { opacity: 0; transform: translateY(20px); transition: 0.8s ease-out; }
+        /* Animation Scroll */
+        [data-reveal] { opacity: 0; transform: translateY(30px); transition: 1s ease-out; }
         .visible { opacity: 1 !important; transform: translateY(0) !important; }
 
-        @media (min-width: 900px) {
-            .nav-links { display: flex; }
-            .mobile-toggle { display: none; }
-        }
-
-        @media (max-width: 600px) {
-            .btn-outline { margin-left: 0; margin-top: 10px; width: 100%; text-align: center; }
-            .btn-dark { width: 100%; text-align: center; }
+        @media (max-width: 900px) {
+            .nav-menu { display: none; }
+            .mobile-toggle { display: block; }
+            .hero { padding-top: 180px; }
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <a href="#" class="logo">Syn<span>Create</span></a>
-        <div class="nav-links">
-            <a href="#how">Πώς λειτουργεί</a>
-            <a href="#sectors">Κλάδοι</a>
-            <a href="#competition">Διαγωνισμός</a>
-            <a href="#" class="btn-dark" style="padding: 10px 22px; font-size: 0.85rem;">Είσοδος</a>
-        </div>
-        <div class="mobile-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
-    </nav>
+    <div class="nav-wrapper">
+        <nav>
+            <a href="#" class="logo">Syn<span>Create</span></a>
+            <div class="nav-menu">
+                <a href="#sectors" class="nav-link">ΚΛΑΔΟΙ</a>
+                <a href="#" class="nav-link">ΠΩΣ ΛΕΙΤΟΥΡΓΕΙ</a>
+                <a href="#" class="btn-main" style="padding: 10px 25px; font-size: 0.8rem;">ΕΞΕΡΕΥΝΗΣΗ</a>
+            </div>
+            <div class="mobile-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+        </nav>
+    </div>
 
-    <div class="mobile-menu" id="mobileOverlay">
-        <div class="close-menu" onclick="toggleMenu()">&times;</div>
-        <a href="#how" onclick="toggleMenu()">Πώς λειτουργεί</a>
+    <div class="mobile-overlay" id="mobileMenu">
+        <div style="position:absolute; top:30px; right:30px; font-size:2rem;" onclick="toggleMenu()">&times;</div>
         <a href="#sectors" onclick="toggleMenu()">Κλάδοι</a>
-        <a href="#competition" onclick="toggleMenu()">Διαγωνισμός</a>
-        <a href="#" class="btn-dark" onclick="toggleMenu()">Είσοδος</a>
+        <a href="#" onclick="toggleMenu()">Πώς Λειτουργεί</a>
+        <a href="#" class="btn-main" onclick="toggleMenu()">Ξεκινήστε</a>
     </div>
 
     <section class="hero">
-        <div class="award-badge" data-reveal>
-            <i class="fas fa-trophy"></i> SynCreate Awards 2026: Οι συμμετοχές άνοιξαν
-        </div>
         <h1 data-reveal>Ενώνουμε κεφάλαια, ιδέες και <span>ανθρώπους</span> σε κερδοφόρα projects.</h1>
-        <p data-reveal>Γίνετε μέρος ενός οικοσυστήματος όπου οι μεμονωμένοι δημιουργοί ενώνονται σε ισχυρές ομάδες και οι επενδυτές επιλέγουν το μέλλον της αγοράς.</p>
-        <div class="cta-group" data-reveal>
-            <a href="#" class="btn btn-dark">Κατάθεση Ιδέας</a>
-            <a href="#how" class="btn btn-outline">Πώς λειτουργεί</a>
-        </div>
+        <p data-reveal>Εκεί που η επιχειρηματικότητα συναντά τη δημιουργικότητα για να χτίσουμε το αύριο, συλλογικά.</p>
+        <a href="#sectors" class="btn-main" data-reveal>ΓΙΝΕ ΜΕΛΟΣ ΤΗΣ ΚΟΙΝΟΤΗΤΑΣ</a>
     </section>
 
-    <div class="section-header" id="how" data-reveal>
-        <h2>Γιατί στη SynCreate;</h2>
-        <p>Χτίζουμε γέφυρες ανάμεσα στο όραμα και την υλοποίηση.</p>
+    <div class="section-header" id="sectors" data-reveal>
+        <h2>Πυλώνες Ανάπτυξης</h2>
     </div>
 
     <section class="grid">
         <div class="card" data-reveal>
-            <i class="fas fa-users-viewfinder"></i>
-            <h3>Synergy Hub</h3>
-            <p>Ενώνουμε ανθρώπους με συμπληρωματικές δεξιότητες ή την ίδια ιδέα για να δημιουργήσουμε ακατανίκητες επιχειρηματικές ομάδες.</p>
+            <i class="fas fa-lightbulb"></i>
+            <h3>Καινοτομία</h3>
+            <p>Στηρίζουμε ιδέες που τολμούν να αλλάξουν τα δεδομένα στην παγκόσμια αγορά.</p>
         </div>
         <div class="card" data-reveal>
-            <i class="fas fa-vote-yea"></i>
-            <h3>Crowd Selection</h3>
-            <p>Η κοινότητα και οι επενδυτές αξιολογούν κάθε project. Μόνο οι πιο άρτιες και υλοποιήσιμες ιδέες λαμβάνουν τη σφραγίδα έγκρισης.</p>
+            <i class="fas fa-seedling"></i>
+            <h3>Βιωσιμότητα</h3>
+            <p>Επενδύουμε στη γη και σε τεχνολογίες που σέβονται το περιβάλλον.</p>
         </div>
         <div class="card" data-reveal>
-            <i class="fas fa-chart-pie"></i>
-            <h3>Fractional Investing</h3>
-            <p>Δίνουμε τη δυνατότητα σε όλους να συμμετέχουν σε μεγάλα projects με μικρότερο κεφάλαιο, μειώνοντας το ρίσκο και αυξάνοντας την απόδοση.</p>
+            <i class="fas fa-microchip"></i>
+            <h3>Τεχνολογία</h3>
+            <p>Αναπτύσσουμε ψηφιακά εργαλεία που λύνουν πραγματικά προβλήματα.</p>
         </div>
     </section>
 
     <script>
-        // Mobile Menu Function
         function toggleMenu() {
-            document.getElementById('mobileOverlay').classList.toggle('active');
+            document.getElementById('mobileMenu').classList.toggle('active');
         }
 
-        // Scroll Reveal Effect
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('visible');
