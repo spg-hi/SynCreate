@@ -23,7 +23,7 @@
             font-family: 'Inter', sans-serif; 
             background: var(--bg); 
             color: var(--text); 
-            -webkit-font-smoothing: antialiased; /* Κάνει τα γράμματα ακόμα πιο καθαρά */
+            -webkit-font-smoothing: antialiased;
         }
 
         /* --- NAVIGATION --- */
@@ -40,59 +40,41 @@
             box-shadow: 0 10px 40px rgba(0,0,0,0.02);
         }
 
-        .logo { 
-            font-weight: 600; font-size: 1.3rem; letter-spacing: -0.5px; 
-            text-decoration: none; color: var(--text); 
-        }
+        .logo { font-weight: 600; font-size: 1.3rem; letter-spacing: -0.5px; text-decoration: none; color: var(--text); }
         .logo span { font-weight: 200; color: var(--primary); }
 
         .nav-menu { display: flex; gap: 35px; align-items: center; }
-        .nav-link { 
-            text-decoration: none; color: var(--text); font-size: 0.85rem; 
-            font-weight: 400; opacity: 0.6; transition: 0.3s; letter-spacing: 0.5px;
-        }
-        .nav-link:hover { opacity: 1; color: var(--primary); }
+        .nav-link { text-decoration: none; color: var(--text); font-size: 0.85rem; font-weight: 400; opacity: 0.6; transition: 0.3s; letter-spacing: 0.5px; }
 
-        /* Mobile Burger */
         .mobile-toggle { display: none; font-size: 1.4rem; cursor: pointer; }
 
-        /* Mobile Overlay */
         .mobile-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: white; z-index: 3000; display: flex; flex-direction: column;
             justify-content: center; align-items: center; gap: 30px;
-            visibility: hidden; opacity: 0; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            visibility: hidden; opacity: 0; transition: 0.4s;
         }
         .mobile-overlay.active { visibility: visible; opacity: 1; }
-        .mobile-overlay a { font-size: 1.5rem; font-weight: 200; text-decoration: none; color: var(--text); }
 
-        /* --- HERO (The Aesthetic Piece) --- */
+        /* --- HERO --- */
         .hero { 
-            padding: 220px 10% 120px; text-align: center; 
+            padding: 220px 10% 80px; text-align: center; 
             background: radial-gradient(circle at 50% -20%, #f1f5f9 0%, #ffffff 70%);
         }
 
         .hero h1 { 
-            /* Εδώ είναι το μυστικό: Πολύ λεπτό βάρος (200-300) και μεγάλο μέγεθος */
-            font-size: clamp(2.2rem, 6.5vw, 4.5rem); 
-            font-weight: 200; 
-            letter-spacing: -0.05em; 
-            line-height: 1.05; 
-            margin-bottom: 2rem;
-            color: #111;
+            font-size: clamp(2.2rem, 6.5vw, 4.5rem); font-weight: 200; 
+            letter-spacing: -0.05em; line-height: 1.05; margin-bottom: 2rem; color: #111;
         }
         .hero h1 span { 
-            font-weight: 600; /* Μόνο η λέξη "άνθρωποι" λίγο πιο έντονη για έμφαση */
+            font-weight: 600; 
             background: linear-gradient(90deg, #3b82f6, #60a5fa);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
 
         .hero p { 
-            font-size: clamp(1.1rem, 1.8vw, 1.3rem); 
-            font-weight: 300; 
-            color: #666; 
-            max-width: 750px; margin: 0 auto 3.5rem; 
-            letter-spacing: 0.2px;
+            font-size: clamp(1.1rem, 1.8vw, 1.3rem); font-weight: 300; color: #666; 
+            max-width: 750px; margin: 0 auto 3.5rem; letter-spacing: 0.2px;
         }
 
         .btn-main { 
@@ -100,32 +82,54 @@
             border-radius: 100px; text-decoration: none; font-weight: 400; 
             font-size: 0.95rem; letter-spacing: 1px; transition: 0.4s;
         }
-        .btn-main:hover { 
-            background: var(--primary); transform: translateY(-3px); 
-            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2); 
+        .btn-main:hover { background: var(--primary); transform: translateY(-3px); box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2); }
+
+        /* --- AWARDS BANNER (New Position) --- */
+        .awards-section {
+            padding: 40px 10%;
+            text-align: center;
         }
 
-        /* --- SECTORS --- */
+        .awards-box {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px 30px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 100px;
+            background: #fdfdfd;
+            transition: 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .awards-box:hover {
+            border-color: var(--primary);
+            background: #f0f7ff;
+        }
+
+        .awards-box i { color: #f59e0b; font-size: 1rem; }
+        .awards-box span { 
+            font-weight: 300; 
+            font-size: 0.9rem; 
+            color: #444; 
+            letter-spacing: 0.5px;
+        }
+
+        /* --- GRID --- */
         .section-header { padding: 80px 10% 40px; text-align: center; }
         .section-header h2 { font-size: 2.2rem; font-weight: 200; letter-spacing: -1px; }
 
-        .grid { 
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 30px; padding: 0 10% 120px; 
-        }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; padding: 0 10% 120px; }
         .card {
             padding: 50px; border-radius: 30px; border: 1px solid var(--border);
             background: #fff; transition: 0.5s cubic-bezier(0.2, 1, 0.3, 1);
         }
-        .card:hover { 
-            transform: translateY(-15px); border-color: var(--primary);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.04);
-        }
+        .card:hover { transform: translateY(-15px); border-color: var(--primary); box-shadow: 0 30px 60px rgba(0,0,0,0.04); }
         .card i { font-size: 2rem; color: var(--primary); margin-bottom: 25px; font-weight: 200; }
         .card h3 { font-size: 1.4rem; font-weight: 400; margin-bottom: 15px; letter-spacing: -0.5px; }
         .card p { font-weight: 300; color: #777; font-size: 0.95rem; }
 
-        /* Animation Scroll */
         [data-reveal] { opacity: 0; transform: translateY(30px); transition: 1s ease-out; }
         .visible { opacity: 1 !important; transform: translateY(0) !important; }
 
@@ -162,6 +166,13 @@
         <p data-reveal>Εκεί που η επιχειρηματικότητα συναντά τη δημιουργικότητα για να χτίσουμε το αύριο, συλλογικά.</p>
         <a href="#sectors" class="btn-main" data-reveal>ΓΙΝΕ ΜΕΛΟΣ ΤΗΣ ΚΟΙΝΟΤΗΤΑΣ</a>
     </section>
+
+    <div class="awards-section" data-reveal>
+        <a href="#" class="awards-box">
+            <i class="fas fa-trophy"></i>
+            <span>SynCreate Awards 2026: Οι συμμετοχές άνοιξαν</span>
+        </a>
+    </div>
 
     <div class="section-header" id="sectors" data-reveal>
         <h2>Πυλώνες Ανάπτυξης</h2>
