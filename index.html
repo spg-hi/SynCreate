@@ -88,4 +88,136 @@
         }
 
         .hero p { 
-            font-size: clamp(
+            font-size: clamp(1rem, 1.5vw, 1.2rem); 
+            font-weight: 300; color: #666; 
+            max-width: 650px; margin: 0 auto 3rem; 
+            letter-spacing: 0.1px;
+            line-height: 1.6;
+        }
+
+        .btn-main { 
+            background: var(--text); color: white; padding: 15px 40px; 
+            border-radius: 100px; text-decoration: none; font-weight: 400; 
+            font-size: 0.9rem; letter-spacing: 1px; transition: 0.4s;
+            display: inline-block;
+        }
+        .btn-main:hover { 
+            background: var(--primary); transform: translateY(-3px); 
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2); 
+        }
+
+        /* --- AWARDS SECTION --- */
+        .awards-section { padding: 30px 10%; text-align: center; }
+        .awards-box {
+            display: inline-flex; align-items: center; gap: 12px;
+            padding: 10px 25px; border: 1px solid rgba(0,0,0,0.05);
+            border-radius: 100px; background: #fafafa;
+            text-decoration: none; transition: 0.3s;
+        }
+        .awards-box:hover { border-color: var(--primary); background: #f0f7ff; }
+        .awards-box i { color: #f59e0b; font-size: 0.9rem; }
+        .awards-box span { font-weight: 300; font-size: 0.85rem; color: #444; letter-spacing: 0.5px; }
+
+        /* --- GRID / SECTORS --- */
+        .section-header { padding: 80px 10% 40px; text-align: center; }
+        .section-header h2 { font-size: 2rem; font-weight: 200; letter-spacing: -1px; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; padding: 0 10% 100px; }
+        .card {
+            padding: 45px; border-radius: 30px; border: 1px solid var(--border);
+            background: #fff; transition: 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+        .card:hover { transform: translateY(-12px); border-color: var(--primary); box-shadow: 0 30px 60px rgba(0,0,0,0.04); }
+        .card i { font-size: 1.8rem; color: var(--primary); margin-bottom: 20px; font-weight: 200; }
+        .card h3 { font-size: 1.3rem; font-weight: 400; margin-bottom: 12px; }
+        .card p { font-weight: 300; color: #777; font-size: 0.95rem; line-height: 1.6; }
+
+        /* Animation Hooks */
+        [data-reveal] { opacity: 0; transform: translateY(25px); transition: 1s ease-out; }
+        .visible { opacity: 1 !important; transform: translateY(0) !important; }
+
+        /* Responsive Fixes */
+        @media (max-width: 900px) {
+            .nav-menu { display: none; }
+            .mobile-toggle { display: block; }
+            .hero { padding-top: 130px; }
+            .hero h1 { font-size: 1.9rem; line-height: 1.25; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="nav-wrapper">
+        <nav>
+            <a href="#" class="logo">Syn<span>Create</span></a>
+            <div class="nav-menu">
+                <a href="#sectors" class="nav-link">ΚΛΑΔΟΙ</a>
+                <a href="#" class="nav-link">ΠΩΣ ΛΕΙΤΟΥΡΓΕΙ</a>
+                <a href="#" class="btn-main" style="padding: 10px 25px; font-size: 0.8rem;">ΕΞΕΡΕΥΝΗΣΗ</a>
+            </div>
+            <div class="mobile-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+        </nav>
+    </div>
+
+    <div class="mobile-overlay" id="mobileMenu">
+        <div class="close-menu" onclick="toggleMenu()">&times;</div>
+        <a href="#sectors" onclick="toggleMenu()">Κλάδοι</a>
+        <a href="#" onclick="toggleMenu()">Πώς Λειτουργεί</a>
+        <a href="#" class="btn-main" onclick="toggleMenu()">Ξεκινήστε</a>
+    </div>
+
+    <section class="hero">
+        <h1 data-reveal>Ενώνουμε κεφάλαια, ιδέες και <span>ανθρώπους</span> σε κερδοφόρα projects.</h1>
+        <p data-reveal>Εκεί που η επιχειρηματικότητα συναντά τη δημιουργικότητα για να χτίσουμε το αύριο, συλλογικά.</p>
+        <a href="#sectors" class="btn-main" data-reveal>ΓΙΝΕ ΜΕΛΟΣ ΤΗΣ ΚΟΙΝΟΤΗΤΑΣ</a>
+    </section>
+
+    <div class="awards-section" data-reveal>
+        <a href="#" class="awards-box">
+            <i class="fas fa-trophy"></i>
+            <span>SynCreate Awards 2026: Οι συμμετοχές άνοιξαν</span>
+        </a>
+    </div>
+
+    <div class="section-header" id="sectors" data-reveal>
+        <h2>Πυλώνες Ανάπτυξης</h2>
+    </div>
+
+    <section class="grid">
+        <div class="card" data-reveal>
+            <i class="fas fa-lightbulb"></i>
+            <h3>Καινοτομία</h3>
+            <p>Στηρίζουμε ιδέες που τολμούν να αλλάξουν τα δεδομένα στην παγκόσμια αγορά.</p>
+        </div>
+        <div class="card" data-reveal>
+            <i class="fas fa-seedling"></i>
+            <h3>Βιωσιμότητα</h3>
+            <p>Επενδύουμε στη γη και σε τεχνολογίες που σέβονται το περιβάλλον.</p>
+        </div>
+        <div class="card" data-reveal>
+            <i class="fas fa-microchip"></i>
+            <h3>Τεχνολογία</h3>
+            <p>Αναπτύσσουμε ψηφιακά εργαλεία που λύνουν πραγματικά προβλήματα.</p>
+        </div>
+    </section>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            document.getElementById('mobileMenu').classList.toggle('active');
+        }
+
+        // Scroll Reveal Intersection Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('[data-reveal]').forEach((el) => observer.observe(el));
+    </script>
+
+</body>
+</html>
