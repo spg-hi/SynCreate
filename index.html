@@ -4,85 +4,130 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SynCreate | Ενώνουμε Ιδέες & Κεφάλαια</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;800&display=swap" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         :root {
             --primary: #3b82f6;
-            --accent: #10b981;
             --dark: #0f172a;
-            --text-muted: #64748b;
+            --text-main: #1e293b;
+            --text-muted: #475569;
+            --bg-light: #f8fafc;
+            --border: rgba(226, 232, 240, 0.8);
         }
 
+        /* Base Reset */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; color: var(--dark); line-height: 1.6; overflow-x: hidden; }
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            color: var(--text-main); 
+            background: #ffffff;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
 
-        /* --- NAVIGATION --- */
+        /* --- NAVIGATION (Refined) --- */
         nav {
             position: fixed; top: 0; width: 100%; z-index: 2000;
-            background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px);
-            border-bottom: 1px solid #eee; padding: 1rem 5%;
+            background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border); padding: 0.8rem 6%;
             display: flex; justify-content: space-between; align-items: center;
         }
-        .logo { font-weight: 800; font-size: 1.4rem; color: var(--dark); text-decoration: none; }
+        .logo { 
+            font-weight: 800; font-size: 1.3rem; color: var(--dark); 
+            text-decoration: none; letter-spacing: -0.5px;
+        }
         .logo span { color: var(--primary); }
         
-        /* Desktop Menu */
-        .nav-links { display: none; gap: 30px; align-items: center; }
-        .nav-links a { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 0.9rem; }
+        .nav-links { display: none; gap: 32px; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--text-main); font-weight: 600; font-size: 0.9rem; transition: 0.2s; }
+        .nav-links a:hover { color: var(--primary); }
 
-        /* Mobile Menu Toggle */
-        .mobile-toggle { font-size: 1.5rem; cursor: pointer; display: block; }
+        .mobile-toggle { font-size: 1.4rem; cursor: pointer; display: block; color: var(--dark); }
 
-        /* Fullscreen Mobile Menu Overlay */
+        /* Fullscreen Mobile Menu */
         .mobile-menu {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: white; z-index: 3000; display: none;
-            flex-direction: column; justify-content: center; align-items: center; gap: 2.5rem;
+            background: #ffffff; z-index: 3000; display: none;
+            flex-direction: column; justify-content: center; align-items: center; gap: 2rem;
         }
         .mobile-menu.active { display: flex; }
-        .mobile-menu a { font-size: 1.8rem; font-weight: 800; text-decoration: none; color: var(--dark); }
-        .close-menu { position: absolute; top: 25px; right: 25px; font-size: 2rem; cursor: pointer; }
+        .mobile-menu a { font-size: 1.6rem; font-weight: 700; text-decoration: none; color: var(--dark); }
+        .close-menu { position: absolute; top: 25px; right: 25px; font-size: 2rem; }
 
-        /* --- HERO --- */
+        /* --- HERO SECTION (Apple/Stripe Style) --- */
         .hero { 
-            padding: 160px 8% 80px; text-align: center;
-            background: radial-gradient(circle at top right, #f0f9ff 0%, #ffffff 50%);
+            padding: clamp(120px, 15vh, 160px) 6% 80px; 
+            text-align: center;
+            background: radial-gradient(circle at top right, #f1f5f9 0%, #ffffff 60%);
         }
+
+        .award-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: #fff7ed; color: #9a3412; padding: 6px 16px;
+            border-radius: 100px; font-size: 0.85rem; font-weight: 700; margin-bottom: 2rem;
+            border: 1px solid #ffedd5;
+        }
+
         .hero h1 { 
-            font-size: clamp(2rem, 6vw, 4rem); font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem;
+            font-size: clamp(1.8rem, 4.5vw, 3.2rem); 
+            font-weight: 800; line-height: 1.15; letter-spacing: -0.03em;
+            color: var(--dark); max-width: 900px; margin: 0 auto 1.5rem;
         }
         .hero h1 span { color: var(--primary); }
-        .hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 850px; margin: 0 auto 3rem; }
+
+        .hero p { 
+            font-size: clamp(1rem, 1.2vw, 1.15rem); 
+            color: var(--text-muted); max-width: 620px; 
+            margin: 0 auto 2.5rem; font-weight: 400;
+        }
 
         .btn { 
-            padding: 16px 35px; border-radius: 12px; font-weight: 700; text-decoration: none; display: inline-block; transition: 0.3s;
+            padding: 14px 30px; border-radius: 10px; font-weight: 600; 
+            text-decoration: none; display: inline-block; transition: 0.3s;
+            font-size: 0.95rem;
         }
         .btn-dark { background: var(--dark); color: white; }
-        .btn-dark:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .btn-dark:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(0,0,0,0.1); }
+        .btn-outline { border: 1px solid #e2e8f0; color: var(--dark); margin-left: 10px; }
+        .btn-outline:hover { background: #f8fafc; }
 
-        /* --- COMPETITION SECTION --- */
-        .award-banner {
-            background: #fff7ed; border: 1px border #ffedd5; padding: 15px; border-radius: 100px;
-            display: inline-flex; align-items: center; gap: 10px; margin-bottom: 2rem;
-            color: #9a3412; font-weight: 700; font-size: 0.9rem;
+        /* --- SECTORS / FEATURES --- */
+        .section-header { padding: 60px 6% 30px; text-align: center; }
+        .section-header h2 { font-size: 2rem; font-weight: 800; letter-spacing: -0.02em; }
+        .section-header p { color: var(--text-muted); margin-top: 8px; }
+
+        .grid { 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 24px; padding: 0 6% 100px; 
         }
-
-        /* --- HOW IT WORKS / SYNERGY --- */
-        .section-header { padding: 60px 8% 20px; text-align: center; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 0 8% 100px; }
         .card { 
-            padding: 40px; border-radius: 25px; border: 1px solid #f1f5f9; background: #fff;
-            transition: 0.4s; position: relative; overflow: hidden;
+            padding: 40px; border-radius: 20px; border: 1px solid var(--border); 
+            background: #ffffff; transition: 0.4s ease;
         }
-        .card:hover { border-color: var(--primary); transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
-        .card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 1.5rem; }
-        .card h3 { font-size: 1.5rem; margin-bottom: 1rem; }
+        .card:hover { 
+            border-color: var(--primary); transform: translateY(-8px); 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.04); 
+        }
+        .card i { font-size: 2rem; color: var(--primary); margin-bottom: 1.5rem; }
+        .card h3 { font-size: 1.4rem; margin-bottom: 0.8rem; font-weight: 700; }
+        .card p { color: var(--text-muted); font-size: 0.95rem; }
+
+        /* Animations */
+        [data-reveal] { opacity: 0; transform: translateY(20px); transition: 0.8s ease-out; }
+        .visible { opacity: 1 !important; transform: translateY(0) !important; }
 
         @media (min-width: 900px) {
             .nav-links { display: flex; }
             .mobile-toggle { display: none; }
+        }
+
+        @media (max-width: 600px) {
+            .btn-outline { margin-left: 0; margin-top: 10px; width: 100%; text-align: center; }
+            .btn-dark { width: 100%; text-align: center; }
         }
     </style>
 </head>
@@ -92,8 +137,9 @@
         <a href="#" class="logo">Syn<span>Create</span></a>
         <div class="nav-links">
             <a href="#how">Πώς λειτουργεί</a>
+            <a href="#sectors">Κλάδοι</a>
             <a href="#competition">Διαγωνισμός</a>
-            <a href="#" class="btn-dark" style="padding: 10px 25px;">Είσοδος</a>
+            <a href="#" class="btn-dark" style="padding: 10px 22px; font-size: 0.85rem;">Είσοδος</a>
         </div>
         <div class="mobile-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
     </nav>
@@ -101,45 +147,61 @@
     <div class="mobile-menu" id="mobileOverlay">
         <div class="close-menu" onclick="toggleMenu()">&times;</div>
         <a href="#how" onclick="toggleMenu()">Πώς λειτουργεί</a>
+        <a href="#sectors" onclick="toggleMenu()">Κλάδοι</a>
         <a href="#competition" onclick="toggleMenu()">Διαγωνισμός</a>
-        <a href="#" class="btn-dark" onclick="toggleMenu()">Ξεκινήστε</a>
+        <a href="#" class="btn-dark" onclick="toggleMenu()">Είσοδος</a>
     </div>
 
     <section class="hero">
-        <div class="award-banner">
-            <i class="fas fa-trophy"></i> SynCreate Award 2026: Η καλύτερη ιδέα κερδίζει πλήρη χρηματοδότηση!
+        <div class="award-badge" data-reveal>
+            <i class="fas fa-trophy"></i> SynCreate Awards 2026: Οι συμμετοχές άνοιξαν
         </div>
-        <h1>Ενώνουμε κεφάλαια, ιδέες και <span>ανθρώπους</span> σε κερδοφόρα projects.</h1>
-        <p>Σπάμε το φράγμα της χρηματοδότησης. Εδώ, οι μεμονωμένοι δημιουργοί γίνονται ισχυρές ομάδες και οι ιδέες μετατρέπονται σε υλοποιήσιμα έργα με την ψήφο και τη στήριξη των επενδυτών μας.</p>
-        <a href="#" class="btn btn-dark">Κατάθεση Επιχειρηματικής Ιδέας</a>
+        <h1 data-reveal>Ενώνουμε κεφάλαια, ιδέες και <span>ανθρώπους</span> σε κερδοφόρα projects.</h1>
+        <p data-reveal>Γίνετε μέρος ενός οικοσυστήματος όπου οι μεμονωμένοι δημιουργοί ενώνονται σε ισχυρές ομάδες και οι επενδυτές επιλέγουν το μέλλον της αγοράς.</p>
+        <div class="cta-group" data-reveal>
+            <a href="#" class="btn btn-dark">Κατάθεση Ιδέας</a>
+            <a href="#how" class="btn btn-outline">Πώς λειτουργεί</a>
+        </div>
     </section>
 
-    <div class="section-header" id="how">
+    <div class="section-header" id="how" data-reveal>
         <h2>Γιατί στη SynCreate;</h2>
+        <p>Χτίζουμε γέφυρες ανάμεσα στο όραμα και την υλοποίηση.</p>
     </div>
 
     <section class="grid">
-        <div class="card">
-            <i class="fas fa-link"></i>
-            <h3>Ένωση Δυνάμεων</h3>
-            <p>Ανθρώποι με την ίδια ιδέα ενώνονται. Δύο καλά μυαλά είναι πάντα πιο ισχυρά από ένα, ειδικά όταν κυνηγούν τον ίδιο στόχο.</p>
+        <div class="card" data-reveal>
+            <i class="fas fa-users-viewfinder"></i>
+            <h3>Synergy Hub</h3>
+            <p>Ενώνουμε ανθρώπους με συμπληρωματικές δεξιότητες ή την ίδια ιδέα για να δημιουργήσουμε ακατανίκητες επιχειρηματικές ομάδες.</p>
         </div>
-        <div class="card">
-            <i class="fas fa-check-double"></i>
-            <h3>Επενδυτική Ψηφοφορία</h3>
-            <p>Οι επενδυτές της κοινότητας αξιολογούν και ψηφίζουν. Μια ιδέα που ψηφίζεται είναι μια ιδέα που η αγορά ήδη ζητάει.</p>
+        <div class="card" data-reveal>
+            <i class="fas fa-vote-yea"></i>
+            <h3>Crowd Selection</h3>
+            <p>Η κοινότητα και οι επενδυτές αξιολογούν κάθε project. Μόνο οι πιο άρτιες και υλοποιήσιμες ιδέες λαμβάνουν τη σφραγίδα έγκρισης.</p>
         </div>
-        <div class="card">
-            <i class="fas fa-rocket"></i>
-            <h3>Από την Ιδέα στην Πράξη</h3>
-            <p>Δεν παρέχουμε μόνο κεφάλαια. Παρέχουμε το δίκτυο και την καθοδήγηση για να γίνει το project σας πραγματικότητα και εξωστρεφές.</p>
+        <div class="card" data-reveal>
+            <i class="fas fa-chart-pie"></i>
+            <h3>Fractional Investing</h3>
+            <p>Δίνουμε τη δυνατότητα σε όλους να συμμετέχουν σε μεγάλα projects με μικρότερο κεφάλαιο, μειώνοντας το ρίσκο και αυξάνοντας την απόδοση.</p>
         </div>
     </section>
 
     <script>
+        // Mobile Menu Function
         function toggleMenu() {
             document.getElementById('mobileOverlay').classList.toggle('active');
         }
+
+        // Scroll Reveal Effect
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('[data-reveal]').forEach((el) => observer.observe(el));
     </script>
+
 </body>
 </html>
