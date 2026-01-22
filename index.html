@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SynCreate | Συλλογική Ανάπτυξη</title>
+    <title>SynCreate</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -16,132 +16,77 @@
             --border: rgba(0, 0, 0, 0.05);
         }
 
-        html { scroll-behavior: smooth; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
+        html { scroll-behavior: smooth; }
         body { 
             font-family: 'Inter', sans-serif; 
             background: var(--bg); 
             color: var(--text); 
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
+            width: 100%;
         }
 
-        /* --- NAVIGATION --- */
+        /* NAVIGATION */
         .nav-wrapper {
             position: fixed; top: 0; width: 100%; display: flex; justify-content: center;
             z-index: 2000; padding-top: 15px;
         }
-
         nav { 
             width: 92%; max-width: 1200px; padding: 0.7rem 1.5rem; 
             display: flex; justify-content: space-between; align-items: center; 
             border: 1px solid var(--border); border-radius: 100px; 
             background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.02);
         }
-
-        .logo { font-weight: 600; font-size: 1.2rem; letter-spacing: -0.5px; text-decoration: none; color: var(--text); }
+        .logo { font-weight: 600; font-size: 1.2rem; text-decoration: none; color: var(--text); }
         .logo span { font-weight: 200; color: var(--primary); }
+        
+        .nav-menu { display: flex; gap: 20px; align-items: center; }
+        .nav-link { text-decoration: none; color: var(--text); font-size: 0.8rem; font-weight: 400; opacity: 0.6; }
+        .mobile-toggle { display: none; font-size: 1.3rem; cursor: pointer; }
 
-        .nav-menu { display: flex; gap: 25px; align-items: center; }
-        .nav-link { text-decoration: none; color: var(--text); font-size: 0.8rem; font-weight: 400; opacity: 0.6; transition: 0.3s; letter-spacing: 0.5px; }
-
-        .mobile-toggle { display: none; font-size: 1.3rem; cursor: pointer; color: var(--text); }
-
-        /* Fullscreen Mobile Menu Overlay */
-        .mobile-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: white; z-index: 3000; display: flex; flex-direction: column;
-            justify-content: center; align-items: center; gap: 25px;
-            visibility: hidden; opacity: 0; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .mobile-overlay.active { visibility: visible; opacity: 1; }
-        .mobile-overlay a { font-size: 1.5rem; font-weight: 200; text-decoration: none; color: var(--text); }
-        .close-menu { position: absolute; top: 30px; right: 30px; font-size: 2rem; cursor: pointer; }
-
-        /* --- HERO SECTION --- */
+        /* HERO */
         .hero { 
-            padding: 150px 8% 60px; 
+            padding: 150px 5% 60px; 
             text-align: center; 
             background: radial-gradient(circle at 50% -20%, #f1f5f9 0%, #ffffff 70%);
         }
-
         .hero h1 { 
-            /* Μικρότερο μέγεθος για να μη σπάει στο κινητό */
-            font-size: clamp(1.8rem, 5.5vw, 4rem); 
+            font-size: clamp(1.6rem, 5vw, 3.5rem); /* Πιο μικρό μέγεθος για σιγουριά */
             font-weight: 200; 
             letter-spacing: -0.04em; 
-            line-height: 1.2; 
-            margin-bottom: 1.8rem; 
+            line-height: 1.3; 
+            margin-bottom: 1.5rem; 
             color: #111;
-            word-break: keep-all; 
-            overflow-wrap: break-word;
+            word-wrap: break-word;
         }
-        
-        .hero h1 span { 
-            font-weight: 400; 
-            color: var(--primary);
-            /* Gradient εφέ στη λέξη ανθρώπους */
-            background: linear-gradient(90deg, #3b82f6, #60a5fa);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
-
+        .hero h1 span { font-weight: 400; color: var(--primary); }
         .hero p { 
-            font-size: clamp(1rem, 1.5vw, 1.2rem); 
-            font-weight: 300; color: #666; 
-            max-width: 650px; margin: 0 auto 3rem; 
-            letter-spacing: 0.1px;
-            line-height: 1.6;
+            font-size: clamp(0.9rem, 1.5vw, 1.1rem); font-weight: 300; color: #666; 
+            max-width: 600px; margin: 0 auto 2.5rem; line-height: 1.6;
         }
-
         .btn-main { 
-            background: var(--text); color: white; padding: 15px 40px; 
+            background: var(--text); color: white; padding: 14px 35px; 
             border-radius: 100px; text-decoration: none; font-weight: 400; 
-            font-size: 0.9rem; letter-spacing: 1px; transition: 0.4s;
-            display: inline-block;
-        }
-        .btn-main:hover { 
-            background: var(--primary); transform: translateY(-3px); 
-            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2); 
+            font-size: 0.9rem; display: inline-block;
         }
 
-        /* --- AWARDS SECTION --- */
-        .awards-section { padding: 30px 10%; text-align: center; }
-        .awards-box {
-            display: inline-flex; align-items: center; gap: 12px;
-            padding: 10px 25px; border: 1px solid rgba(0,0,0,0.05);
-            border-radius: 100px; background: #fafafa;
-            text-decoration: none; transition: 0.3s;
+        /* MOBILE MENU OVERLAY */
+        .mobile-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: white; z-index: 3000; display: none; flex-direction: column;
+            justify-content: center; align-items: center; gap: 30px;
         }
-        .awards-box:hover { border-color: var(--primary); background: #f0f7ff; }
-        .awards-box i { color: #f59e0b; font-size: 0.9rem; }
-        .awards-box span { font-weight: 300; font-size: 0.85rem; color: #444; letter-spacing: 0.5px; }
+        .mobile-overlay.active { display: flex; }
 
-        /* --- GRID / SECTORS --- */
-        .section-header { padding: 80px 10% 40px; text-align: center; }
-        .section-header h2 { font-size: 2rem; font-weight: 200; letter-spacing: -1px; }
-
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; padding: 0 10% 100px; }
-        .card {
-            padding: 45px; border-radius: 30px; border: 1px solid var(--border);
-            background: #fff; transition: 0.5s cubic-bezier(0.2, 1, 0.3, 1);
-        }
-        .card:hover { transform: translateY(-12px); border-color: var(--primary); box-shadow: 0 30px 60px rgba(0,0,0,0.04); }
-        .card i { font-size: 1.8rem; color: var(--primary); margin-bottom: 20px; font-weight: 200; }
-        .card h3 { font-size: 1.3rem; font-weight: 400; margin-bottom: 12px; }
-        .card p { font-weight: 300; color: #777; font-size: 0.95rem; line-height: 1.6; }
-
-        /* Animation Hooks */
-        [data-reveal] { opacity: 0; transform: translateY(25px); transition: 1s ease-out; }
-        .visible { opacity: 1 !important; transform: translateY(0) !important; }
-
-        /* Responsive Fixes */
+        /* GRID */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 40px 8%; }
+        .card { padding: 40px; border-radius: 20px; border: 1px solid var(--border); background: #fff; }
+        .card h3 { font-size: 1.3rem; font-weight: 400; margin-bottom: 10px; }
+        
         @media (max-width: 900px) {
             .nav-menu { display: none; }
             .mobile-toggle { display: block; }
-            .hero { padding-top: 130px; }
-            .hero h1 { font-size: 1.9rem; line-height: 1.25; }
         }
     </style>
 </head>
@@ -151,73 +96,47 @@
         <nav>
             <a href="#" class="logo">Syn<span>Create</span></a>
             <div class="nav-menu">
-                <a href="#sectors" class="nav-link">ΚΛΑΔΟΙ</a>
-                <a href="#" class="nav-link">ΠΩΣ ΛΕΙΤΟΥΡΓΕΙ</a>
-                <a href="#" class="btn-main" style="padding: 10px 25px; font-size: 0.8rem;">ΕΞΕΡΕΥΝΗΣΗ</a>
+                <a href="#" class="nav-link">ΚΛΑΔΟΙ</a>
+                <a href="#" class="btn-main" style="padding: 10px 20px; font-size: 0.8rem;">ΕΙΣΟΔΟΣ</a>
             </div>
             <div class="mobile-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
         </nav>
     </div>
 
     <div class="mobile-overlay" id="mobileMenu">
-        <div class="close-menu" onclick="toggleMenu()">&times;</div>
-        <a href="#sectors" onclick="toggleMenu()">Κλάδοι</a>
-        <a href="#" onclick="toggleMenu()">Πώς Λειτουργεί</a>
+        <div style="position:absolute; top:30px; right:30px; font-size:2rem;" onclick="toggleMenu()">&times;</div>
+        <a href="#" style="text-decoration:none; color:black; font-size:1.5rem;" onclick="toggleMenu()">Κλάδοι</a>
         <a href="#" class="btn-main" onclick="toggleMenu()">Ξεκινήστε</a>
     </div>
 
     <section class="hero">
-        <h1 data-reveal>Ενώνουμε κεφάλαια, ιδέες και <span>ανθρώπους</span> σε κερδοφόρα projects.</h1>
-        <p data-reveal>Εκεί που η επιχειρηματικότητα συναντά τη δημιουργικότητα για να χτίσουμε το αύριο, συλλογικά.</p>
-        <a href="#sectors" class="btn-main" data-reveal>ΓΙΝΕ ΜΕΛΟΣ ΤΗΣ ΚΟΙΝΟΤΗΤΑΣ</a>
+        <h1>Ενώνουμε κεφάλαια, ιδέες και <span>ανθρώπους</span> σε κερδοφόρα projects.</h1>
+        <p>Εκεί που η επιχειρηματικότητα συναντά τη δημιουργικότητα για να χτίσουμε το αύριο, συλλογικά.</p>
+        <a href="#" class="btn-main">ΓΙΝΕ ΜΕΛΟΣ</a>
     </section>
 
-    <div class="awards-section" data-reveal>
-        <a href="#" class="awards-box">
-            <i class="fas fa-trophy"></i>
-            <span>SynCreate Awards 2026: Οι συμμετοχές άνοιξαν</span>
-        </a>
-    </div>
-
-    <div class="section-header" id="sectors" data-reveal>
-        <h2>Πυλώνες Ανάπτυξης</h2>
-    </div>
-
     <section class="grid">
-        <div class="card" data-reveal>
-            <i class="fas fa-lightbulb"></i>
+        <div class="card">
+            <i class="fas fa-lightbulb" style="color:var(--primary); margin-bottom:15px; font-size:1.5rem;"></i>
             <h3>Καινοτομία</h3>
-            <p>Στηρίζουμε ιδέες που τολμούν να αλλάξουν τα δεδομένα στην παγκόσμια αγορά.</p>
+            <p style="font-weight:300; color:#666;">Στηρίζουμε ιδέες που τολμούν.</p>
         </div>
-        <div class="card" data-reveal>
-            <i class="fas fa-seedling"></i>
+        <div class="card">
+            <i class="fas fa-seedling" style="color:var(--primary); margin-bottom:15px; font-size:1.5rem;"></i>
             <h3>Βιωσιμότητα</h3>
-            <p>Επενδύουμε στη γη και σε τεχνολογίες που σέβονται το περιβάλλον.</p>
-        </div>
-        <div class="card" data-reveal>
-            <i class="fas fa-microchip"></i>
-            <h3>Τεχνολογία</h3>
-            <p>Αναπτύσσουμε ψηφιακά εργαλεία που λύνουν πραγματικά προβλήματα.</p>
+            <p style="font-weight:300; color:#666;">Επενδύουμε στο μέλλον.</p>
         </div>
     </section>
 
     <script>
-        // Mobile Menu Toggle
         function toggleMenu() {
-            document.getElementById('mobileMenu').classList.toggle('active');
+            var menu = document.getElementById('mobileMenu');
+            if (menu.style.display === 'flex') {
+                menu.style.display = 'none';
+            } else {
+                menu.style.display = 'flex';
+            }
         }
-
-        // Scroll Reveal Intersection Observer
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('[data-reveal]').forEach((el) => observer.observe(el));
     </script>
-
 </body>
 </html>
