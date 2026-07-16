@@ -59,11 +59,7 @@
             animation: fadeIn 0.5s ease;
         }
 
-        /* Ειδικό μεγαλύτερο πλάτος ΜΟΝΟ για το βήμα των τομέων, ώστε να χωράνε οριζόντια */
-        #stepPartners {
-            max-width: 1100px;
-        }
-
+        #stepPartners { max-width: 1100px; }
         .step-active { display: block; }
 
         h1 { font-size: clamp(1.8rem, 5vw, 3rem); font-weight: 200; margin-bottom: 20px; letter-spacing: -1px; }
@@ -94,10 +90,9 @@
         .option-card:hover { border-color: var(--primary); background: white; transform: translateY(-5px); }
         .option-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; }
 
-        /* --- COMPACT ΟΡΙΖΟΝΤΙΟ GRID ΓΙΑ ΤΟΥΣ 4 ΤΟΜΕΙΣ --- */
         .sectors-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr); /* 4 κάρτες στην ίδια σειρά */
+            grid-template-columns: repeat(4, 1fr);
             gap: 15px;
             margin-top: 35px;
             width: 100%;
@@ -105,12 +100,12 @@
 
         .sector-card {
             background: var(--card-bg);
-            padding: 20px 15px; /* Πολύ πιο μαζεμένο padding */
+            padding: 20px 15px;
             border-radius: 16px;
             border: 1px solid var(--border);
             cursor: pointer;
             transition: 0.3s;
-            text-align: left; /* Στοίχιση αριστερά για το look δίπλα-δίπλα */
+            text-align: left;
         }
         .sector-card:hover { border-color: var(--primary); background: white; transform: translateY(-3px); }
         
@@ -120,19 +115,9 @@
             gap: 10px;
             margin-bottom: 8px;
         }
-        .sector-card i { 
-            font-size: 1.4rem; /* Μικρότερο και πιο elegant εικονίδιο */
-            color: var(--primary); 
-        }
-        .sector-card h3 { 
-            font-size: 1rem; 
-            font-weight: 600;
-        }
-        .sector-card p { 
-            font-size: 0.8rem; /* Μικρό, καθαρό κείμενο */
-            color: #666; 
-            line-height: 1.4;
-        }
+        .sector-card i { font-size: 1.4rem; color: var(--primary); }
+        .sector-card h3 { font-size: 1rem; font-weight: 600; }
+        .sector-card p { font-size: 0.8rem; color: #666; line-height: 1.4; }
 
         input[type="email"] {
             padding: 15px 25px;
@@ -149,15 +134,9 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Responsive για κινητά: Γυρνάει σε κάθετη διάταξη */
         @media (max-width: 900px) {
-            .sectors-grid {
-                grid-template-columns: 1fr;
-                gap: 12px;
-            }
-            .sector-card {
-                padding: 15px;
-            }
+            .sectors-grid { grid-template-columns: 1fr; gap: 12px; }
+            .sector-card { padding: 15px; }
         }
     </style>
 </head>
@@ -173,8 +152,9 @@
     <main class="main-container">
 
         <!-- STEP 0 -->
-        <div id="step0" class="step-container step-active"><h1>Ενώνουμε ανθρώπους που έχουν την ίδια <span>ιδέα</span>.</h1>
-            <p style="margin-bottom: 40px; color: #666;">Αντί να προσπαθείς μόνος, βρες αυτούς που σκέφτηκαν το ίδιο πράγμα με εσένα. Δημιουργήστε μαζί την επιχειρηματική σας ιδέα σε πράξη και αφήστε τον κόσμο να επενδύσει σε εσάς.</p>
+        <div id="step0" class="step-container step-active">
+            <h1>Ενώνουμε ανθρώπους που έχουν την ίδια <span>επιχειρηματική ιδέα με σένα.</span></h1>
+            <p style="margin-bottom: 40px; color: #666;">Αντί να προσπαθείς μόνος, βρες αυτούς που σκέφτονται την ίδια επιχειρηματική ιδέα με εσένα. Δημιουργήστε μαζί την επιχειρηματική σας ιδέα στην πράξη και αφήστε τον κόσμο να επενδύσει σε εσάς.</p>
             <button class="btn-main" onclick="goToStep(1)">ΞΕΚΙΝΑ ΤΩΡΑ</button>
         </div>
 
@@ -212,45 +192,25 @@
             </div>
         </div>
 
-        <!-- STEP PARTNERS: Ultra-Compact Above-the-Fold -->
+        <!-- STEP PARTNERS -->
         <div id="stepPartners" class="step-container">
             <h1>Σε ποιο τομέα ανήκει η <span>ιδέα</span> σου;</h1>
             <p style="color: #666;">Επίλεξε τον κλάδο για να βρούμε τους κατάλληλους συνεργάτες.</p>
-            
             <div class="sectors-grid">
-                <!-- 1. Πρωτογενής -->
                 <div class="sector-card" onclick="selectSector('primary')">
-                    <div class="sector-header">
-                        <i class="fas fa-seedling"></i>
-                        <h3>Πρωτογενής</h3>
-                    </div>
+                    <div class="sector-header"><i class="fas fa-seedling"></i><h3>Πρωτογενής</h3></div>
                     <p>Παραγωγή της γης, ζώων ή φύσης (π.χ. Αγροτικά, Μελισσοκομία).</p>
                 </div>
-
-                <!-- 2. Δευτερογενής -->
                 <div class="sector-card" onclick="selectSector('secondary')">
-                    <div class="sector-header">
-                        <i class="fas fa-industry"></i>
-                        <h3>Δευτερογενής</h3>
-                    </div>
+                    <div class="sector-header"><i class="fas fa-industry"></i><h3>Δευτερογενής</h3></div>
                     <p>Κατασκευή, παραγωγή ή μεταποίηση (π.χ. Ένδυση, Τρόφιμα).</p>
                 </div>
-
-                <!-- 3. Τριτογενής -->
                 <div class="sector-card" onclick="selectSector('tertiary')">
-                    <div class="sector-header">
-                        <i class="fas fa-store"></i>
-                        <h3>Τριτογενής</h3>
-                    </div>
+                    <div class="sector-header"><i class="fas fa-store"></i><h3>Τριτογενής</h3></div>
                     <p>Παροχή υπηρεσιών ή εμπόριο (π.shops, Εστίαση, Τουρισμός).</p>
                 </div>
-
-                <!-- 4. Τεταρτογενής -->
                 <div class="sector-card" onclick="selectSector('quaternary')">
-                    <div class="sector-header">
-                        <i class="fas fa-laptop-code"></i>
-                        <h3>Τεταρτογενής</h3>
-                    </div>
+                    <div class="sector-header"><i class="fas fa-laptop-code"></i><h3>Τεταρτογενής</h3></div>
                     <p>Υψηλή τεχνολογία, software, AI και πληροφορική (π.χ. Apps, SaaS).</p>
                 </div>
             </div>
@@ -269,17 +229,13 @@
 
     <script>
         let selectedSector = '';
-
         function goToStep(stepNumber, choice) {
             const steps = document.querySelectorAll('.step-container');
             steps.forEach(s => s.classList.remove('step-active'));
-
             const nextStep = document.getElementById('step' + stepNumber);
             nextStep.classList.add('step-active');
-
             const title = document.getElementById('final-title');
             const desc = document.getElementById('final-desc');
-
             if (choice === 'money') {
                 title.innerHTML = "Βρες <span>Κεφάλαια</span>";
                 desc.innerText = "Θα σε συνδέσουμε με επενδυτές που ενδιαφέρονται για τον κλάδο σου.";
@@ -291,10 +247,8 @@
                 desc.innerText = "Θα λαμβάνεις πρώτος τα πιο υποσχόμενα projects του SynCreate.";
             }
         }
-
         function selectSector(sector) {
             selectedSector = sector;
-            console.log("Επιλέχθηκε ο τομέας: " + sector);
             goToStep(3, 'partners');
         }
     </script>
