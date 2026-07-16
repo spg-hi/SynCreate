@@ -32,18 +32,76 @@
         .section-title h2 { font-size: 2.2rem; }
         .section-title div { height: 4px; width: 60px; background: var(--secondary); margin: 10px auto; }
 
-        /* Spider Section */
-        .find-partners-section { background: var(--white); border-bottom: 1px solid #e0e6ed; }
-        .spider-container { width: 100%; max-width: 1100px; margin: 0 auto; }
-        .spider-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; width: 100%; margin-top: 2rem; }
-        .spider-card { background: var(--light); border: 2px solid transparent; padding: 2.5rem 1.5rem; border-radius: 12px; cursor: pointer; transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1); text-align: center; display: flex; flex-direction: column; align-items: center; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
-        .spider-card:hover { transform: translateY(-8px); background: var(--white); border-color: var(--secondary); box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
-        .icon-wrapper { width: 70px; height: 70px; background: rgba(26, 74, 122, 0.05); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; font-size: 2rem; color: var(--primary); transition: 0.3s; }
-        .spider-card:hover .icon-wrapper { background: rgba(46, 204, 113, 0.1); color: var(--secondary); }
-        .spider-card h3 { font-size: 1.25rem; margin-bottom: 0.8rem; color: var(--primary); }
-        .spider-card p { font-size: 0.9rem; color: #64748b; line-height: 1.5; }
+        /* --- ΝΕΟ SECTION: ΒΡΕΣ ΣΥΝΕΡΓΑΤΕΣ (Η ΑΡΑΧΝΗ) --- */
+        .find-partners-section {
+            background: var(--white);
+            border-bottom: 1px solid #e0e6ed;
+        }
+        .spider-container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .spider-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+            gap: 1.5rem; 
+            width: 100%;
+            margin-top: 2rem;
+        }
+        .spider-card { 
+            background: var(--light); 
+            border: 2px solid transparent;
+            padding: 2.5rem 1.5rem; 
+            border-radius: 12px; 
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1); 
+            text-align: center; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+        /* Hover effects */
+        .spider-card:hover { 
+            transform: translateY(-8px); 
+            background: var(--white);
+            border-color: var(--secondary);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+        
+        /* Wrapper για το εικονίδιο */
+        .icon-wrapper {
+            width: 70px;
+            height: 70px;
+            background: rgba(26, 74, 122, 0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.2rem;
+            font-size: 2rem;
+            color: var(--primary);
+            transition: 0.3s;
+        }
+        .spider-card:hover .icon-wrapper {
+            background: rgba(46, 204, 113, 0.1);
+            color: var(--secondary);
+        }
+        .spider-card h3 { 
+            font-size: 1.25rem; 
+            margin-bottom: 0.8rem; 
+            color: var(--primary); 
+            transition: 0.3s;
+        }
+        .spider-card p { 
+            font-size: 0.9rem; 
+            color: #64748b; 
+            line-height: 1.5;
+            transition: 0.3s;
+        }
 
-        /* Grid for Features */
+        /* Grid for Features (Σύντομο Ρεζουμέ) */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
         .card { background: var(--white); padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; text-align: center; }
         .card:hover { transform: translateY(-10px); }
@@ -60,7 +118,10 @@
         .cta-button { background: var(--secondary); color: white; padding: 12px 30px; text-decoration: none; border-radius: 25px; font-weight: bold; transition: 0.3s; }
         .cta-button:hover { background: #27ae60; }
 
-        @media (max-width: 768px) { .hero h1 { font-size: 2rem; } .spider-grid { grid-template-columns: 1fr; gap: 1rem; padding: 0 10px; } }
+        @media (max-width: 768px) { 
+            .hero h1 { font-size: 2rem; } 
+            .spider-grid { grid-template-columns: 1fr; gap: 1rem; padding: 0 10px; }
+        }
     </style>
 </head>
 <body>
@@ -72,44 +133,65 @@
         </nav>
     </header>
 
+    <!-- Το αρχικό σου Hero Section -->
     <section class="hero">
-        <h1>Ενώνουμε ανθρώπους με την ίδια ιδέα.</h1>
-        <p>Αντί να προσπαθείς μόνος, βρες αυτούς που σκέφτηκαν το ίδιο πράγμα με εσένα. Δημιουργήστε μαζί την επιχειρηματική σας ιδέα σε πράξη και αφήστε τον κόσμο να επενδύσει σε εσάς.</p>
-        <a href="#partners" class="cta-button">ΞΕΚΙΝΑ ΤΩΡΑ</a>
+        <h1>Επενδύουμε στο Μέλλον, Μαζί.</h1>
+        <p>Ένα σύστημα ιδιωτικής χρηματοδότησης όπου οι πολίτες έχουν τον πρώτο λόγο στην καινοτομία και την ανάπτυξη.</p>
+        <a href="#partners" class="cta-button">Βρες Συνεργάτες</a>
     </section>
 
+    <!-- --- Η ΑΡΑΧΝΗ (ΒΗΜΑ 1): Βρες Συνεργάτες --- -->
     <section id="partners" class="find-partners-section">
         <div class="section-title">
             <h2>Βρες Συνεργάτες</h2>
             <p style="text-align: center; color: #64748b; margin-top: 10px;">Θα σου προτείνουμε συνιδρυτές με τις ικανότητες που χρειάζεσαι.</p>
             <div></div>
         </div>
+
         <div class="spider-container">
             <div class="spider-grid">
+                
+                <!-- Κάρτα 1: Πρωτογενής -->
                 <div class="spider-card" onclick="selectSector('primary')">
-                    <div class="icon-wrapper"><i class="fas fa-seedling"></i></div>
+                    <div class="icon-wrapper">
+                        <i class="fas fa-seedling"></i>
+                    </div>
                     <h3>Πρωτογενής Τομέας</h3>
                     <p>Παραγωγή της γης, των ζώων ή της φύσης (π.χ. Αγροτικά, Μελισσοκομία, Βιολογικά προϊόντα).</p>
                 </div>
+
+                <!-- Κάρτα 2: Δευτερογενής -->
                 <div class="spider-card" onclick="selectSector('secondary')">
-                    <div class="icon-wrapper"><i class="fas fa-industry"></i></div>
-                    <h3>Δευτερογενής Τομέας</h3>
+                    <div class="icon-wrapper">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <h3>Δευτερογενής...</h3>
                     <p>Κατασκευή, παραγωγή ή μεταποίηση προϊόντων (π.χ. Χειροποίητα ρούχα, Έπιπλα, Τρόφιμα).</p>
                 </div>
+
+                <!-- Κάρτα 3: Τριτογενής -->
                 <div class="spider-card" onclick="selectSector('tertiary')">
-                    <div class="icon-wrapper"><i class="fas fa-store"></i></div>
+                    <div class="icon-wrapper">
+                        <i class="fas fa-store"></i>
+                    </div>
                     <h3>Τριτογενής Τομέας</h3>
                     <p>Παροχή υπηρεσιών ή εμπόριο (π.χ. E-shops, Καφετέριες, Τοπικά καταστήματα, Τουρισμός).</p>
                 </div>
+
+                <!-- Κάρτα 4: Τεταρτογενής -->
                 <div class="spider-card" onclick="selectSector('quaternary')">
-                    <div class="icon-wrapper"><i class="fas fa-laptop-code"></i></div>
-                    <h3>Τεταρτογενής Τομέας</h3>
+                    <div class="icon-wrapper">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Τεταρτογενής...</h3>
                     <p>Υψηλή τεχνολογία, λογισμικό, AI και πληροφορική (π.χ. Mobile Apps, SaaS platforms).</p>
                 </div>
+
             </div>
         </div>
     </section>
 
+    <!-- Σύντομο Ρεζουμέ -->
     <section id="about">
         <div class="section-title">
             <h2>Σύντομο Ρεζουμέ</h2>
@@ -153,11 +235,13 @@
         <p style="font-size: 0.8rem; margin-top: 10px;">Σύστημα Ιδιωτικής Χρηματοδότησης & Κοινωνικής Δράσης</p>
     </footer>
 
+    <!-- Script για να πιάνουμε το κλικ και να προχωράμε -->
     <script>
         function selectSector(sector) {
             console.log("Επιλέχθηκε ο τομέας: " + sector);
             alert("Επιλέξατε τον τομέα: " + sector + "! Σύντομα θα εμφανιστούν οι υποκατηγορίες του Βήματος 2.");
         }
     </script>
+
 </body>
 </html>
