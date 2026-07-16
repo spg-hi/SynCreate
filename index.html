@@ -24,6 +24,7 @@
             background: var(--bg); 
             color: var(--text); 
             line-height: 1.6;
+            overflow: hidden; /* Κλειδώνει το scrolling για καθαρό app-like feel */
         }
 
         /* NAVIGATION */
@@ -40,16 +41,15 @@
         .logo { font-weight: 600; font-size: 1.2rem; text-decoration: none; color: var(--text); }
         .logo span { font-weight: 200; color: var(--primary); }
 
-        /* INTERACTIVE SECTION */
+        /* INTERACTIVE CONTAINER */
         .main-container {
-            min-height: 100vh;
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 120px 5% 80px 5%;
+            padding: 0 5%;
             text-align: center;
-            background: radial-gradient(circle at 50% 0%, #f1f5f9 0%, #ffffff 70%);
         }
 
         .step-container {
@@ -65,52 +65,23 @@
 
         .step-active { display: block; }
 
-        h1 { font-size: clamp(2rem, 5.5vw, 3.2rem); font-weight: 200; margin-bottom: 20px; letter-spacing: -1.5px; line-height: 1.25; }
+        h1 { 
+            font-size: clamp(2.2rem, 6vw, 3.8rem); 
+            font-weight: 200; 
+            margin-bottom: 25px; 
+            letter-spacing: -1.5px; 
+            line-height: 1.2; 
+        }
         h1 span { font-weight: 600; color: var(--primary); }
 
         .btn-main { 
-            background: var(--text); color: white; padding: 16px 45px; 
+            background: var(--text); color: white; padding: 18px 50px; 
             border-radius: 100px; text-decoration: none; font-weight: 400; 
-            font-size: 1rem; border: none; cursor: pointer; transition: 0.3s;
+            font-size: 1.05rem; border: none; cursor: pointer; transition: 0.3s;
             display: inline-block;
+            margin-top: 35px;
         }
         .btn-main:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-
-        /* MINIMAL FEATURES LIST */
-        .features-list {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-            margin: 45px auto;
-            max-width: 900px;
-            text-align: left;
-        }
-        .feature-item {
-            padding: 10px 15px;
-            border-left: 2px solid var(--border);
-            transition: 0.3s;
-        }
-        .feature-item:hover {
-            border-left-color: var(--primary);
-        }
-        .feature-item h3 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--text);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .feature-item h3 i {
-            color: var(--primary);
-            font-size: 0.9rem;
-        }
-        .feature-item p {
-            font-size: 0.85rem;
-            color: #666;
-            line-height: 1.5;
-        }
 
         .options-grid {
             display: grid;
@@ -176,22 +147,10 @@
         }
 
         @media (max-width: 900px) {
+            body { overflow-y: auto; } /* Επιτρέπει scroll μόνο σε κινητά αν δεν χωράει η οθόνη */
             .sectors-grid {
                 grid-template-columns: 1fr;
                 gap: 12px;
-            }
-            .features-list {
-                grid-template-columns: 1fr;
-                gap: 20px;
-                text-align: center;
-            }
-            .feature-item {
-                border-left: none;
-                border-bottom: 1px solid var(--border);
-                padding-bottom: 15px;
-            }
-            .feature-item h3 {
-                justify-content: center;
             }
         }
     </style>
@@ -207,29 +166,12 @@
 
     <main class="main-container">
 
-        <!-- STEP 0: ΑΡΧΙΚΗ ΣΕΛΙΔΑ -->
+        <!-- STEP 0: Η ΑΡΧΙΚΗ ΣΕΛΙΔΑ (Στατική / Χωρίς Scroll) -->
         <div id="step0" class="step-container step-active">
             <h1>Ενώνουμε ανθρώπους με την ίδια <span>ιδέα</span>.</h1>
-            <p style="color: #555; font-size: clamp(1rem, 3vw, 1.15rem); max-width: 680px; margin: 0 auto; line-height: 1.6;">
+            <p style="color: #555; font-size: clamp(1.1rem, 3vw, 1.4rem); max-width: 680px; margin: 0 auto; line-height: 1.6; font-weight: 300;">
                 Αντί να προσπαθείς μόνος, βρες αυτούς που σκέφτηκαν το ίδιο πράγμα με εσένα. Δημιουργήστε μαζί την επιχειρηματική σας ιδέα σε πράξη και αφήστε τον κόσμο να επενδύσει σε εσάς.
             </p>
-            
-            <!-- Minimal Features List -->
-            <div class="features-list">
-                <div class="feature-item">
-                    <h3><i class="fas fa-users"></i>Βρες Συνεργάτες</h3>
-                    <p>Συνδέσου με άτομα που έχουν την ίδια ιδέα και δημιουργήστε μαζί την ιδανική ομάδα.</p>
-                </div>
-                <div class="feature-item">
-                    <h3><i class="fas fa-euro-sign"></i>Βρες Κεφάλαια</h3>
-                    <p>Δώσε την ευκαιρία στον κόσμο (micro-investors) να χρηματοδοτήσει άμεσα το project σας.</p>
-                </div>
-                <div class="feature-item">
-                    <h3><i class="fas fa-rocket"></i>Κάνε την Αρχή</h3>
-                    <p>Μετατρέψτε το κοινό σας σχέδιο σε μια κερδοφόρα και ισχυρή επιχείρηση.</p>
-                </div>
-            </div>
-
             <button class="btn-main" onclick="goToStep(1)">ΞΕΚΙΝΑ ΤΩΡΑ</button>
         </div>
 
